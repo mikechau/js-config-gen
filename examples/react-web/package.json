@@ -6,13 +6,13 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "setup": "rbg-install react-web",
+    "setup": "js-config-gen -i react-web",
     "test": "echo \"Error: no test specified\" && exit 1",
     "remove": "rm -rf ./node_modules",
     "reinstall": "npm run remove && npm install"
   },
   "devDependencies": {
-    "@mikechau/react-boilerplate-gen": "file:../../"
+    "@mikechau/js-config-gen": "file:../../"
   },
   "dependencies": {
   }

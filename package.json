@@ -1,36 +1,38 @@
 {
-  "name": "@mikechau/react-boilerplate-gen",
+  "name": "@mikechau/js-config-gen",
   "version": "0.0.1",
-  "description": "Description goes here.",
+  "description": "@mikechau's default configs for javascript projects.",
   "main": "src/index.js",
   "bin": {
-    "react-boilerplate-gen-install": "bin/rbg-install.js",
-    "rbg-install": "bin/rbg-install.js"
+    "js-config-gen": "bin/js-config-gen.js"
   },
   "scripts": {
     "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
     "start": "node ./src/index.js",
     "lint": "eslint ./src ./tests",
-    "example:reset": "./scripts/example-reset.js",
-    "example:update-rbg": "./scripts/example-update-rbg.js"
+    "example:package-reset": "./scripts/example-package-reset.js",
+    "example:update-self": "./scripts/example-update-self.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikechau/react-boilerplate-gen.git"
+    "url": "git+https://github.com/mikechau/js-config-gen.git"
   },
   "keywords": [
     "react",
     "boilerplate",
     "webpack",
     "es6",
-    "karma"
+    "karma",
+    "testing",
+    "eslint",
+    "redux"
   ],
   "author": "Mike Chau (@mikechau)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mikechau/react-boilerplate-gen/issues"
+    "url": "https://github.com/mikechau/js-config-gen/issues"
   },
-  "homepage": "https://github.com/mikechau/react-boilerplate-gen#readme",
+  "homepage": "https://github.com/mikechau/js-config-gen#readme",
   "dependencies": {
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.1.1",
