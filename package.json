@@ -32,14 +32,14 @@
   },
   "homepage": "https://github.com/mikechau/react-boilerplate-gen#readme",
   "dependencies": {
-    "blueimp-tmpl": "^2.5.6",
-    "diff": "^2.2.1"
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "lodash": "^3.10.1",
+    "minimist": "^1.2.0",
+    "shelljs": "^0.5.3"
   },
   "devDependencies": {
     "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.1.1",
-    "shelljs": "^0.5.3",
     "tape": "^4.2.2"
   }
 }

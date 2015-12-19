@@ -22,7 +22,6 @@ var devPackages = {
 
   eslint: [
     'eslint',
-    'eslint-config-airbnb',
     'eslint-plugin-babel',
     'eslint-plugin-react',
     'eslint-plugin-mocha'

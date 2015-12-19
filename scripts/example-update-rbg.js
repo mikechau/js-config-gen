@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 var shell = require('shelljs');
 var path = require('path');
@@ -14,4 +15,4 @@ var directory = path.resolve(__dirname, '../examples/' + exampleName);
 
 shell.cd(directory);
 shell.exec('npm uninstall @mikechau/react-boilerplate-gen');
-shell.exec('npm install @mikechau/react-boilerplate-gen');
+shell.exec('npm install');
