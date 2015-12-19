@@ -1,11 +1,11 @@
 'use strict';
 
 var babelEslintrc = {
-  'plugins': [
+  plugins: [
     'babel'
   ],
 
-  'rules': {
+  rules: {
     'generator-star-spacing': 0,
     'new-cap': 0,
     'object-shorthand': 0,
