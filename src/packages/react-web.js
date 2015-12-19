@@ -1,6 +1,6 @@
 'use strict';
 
-var getPackages = require('./utils').getPackages;
+var flatten = require('../utils/flatten');
 
 var devPackages = {
   babel: [
@@ -22,12 +22,14 @@ var devPackages = {
 
   eslint: [
     'eslint',
+    'eslint-config-airbnb',
     'eslint-plugin-babel',
     'eslint-plugin-react',
     'eslint-plugin-mocha'
   ],
 
   libs: [
+    'json5',
     'node-zopfli'
   ],
 
@@ -46,7 +48,8 @@ var devPackages = {
     'fetch-mock',
     'expect',
     'expect-jsx',
-    'react-addons-test-utils'
+    'react-addons-test-utils',
+    'enzyme'
   ],
 
   utils: [
@@ -109,6 +112,22 @@ var packages = {
 };
 
 module.exports = {
-  dev: getPackages(devPackages),
-  depends: getPackages(packages)
+  dev: flatten([
+    devPackages.css,
+    devPackages.libs,
+    devPackages.server,
+    devPackages.webpack,
+    devPackages.babel,
+    devPackages.eslint,
+    devPackages.webpack,
+    devPackages.testing,
+    devPackages.utils
+  ]),
+
+  depends: flatten([
+    packages.libs,
+    packages.http,
+    packages.react,
+    packages.redux
+  ])
 };
