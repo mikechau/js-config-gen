@@ -1,6 +1,6 @@
 'use strict';
 
-var flatten = require('../utils/flatten');
+var _ = require('lodash');
 
 var devPackages = {
   babel: [
@@ -110,7 +110,7 @@ var packages = {
 };
 
 module.exports = {
-  dev: flatten([
+  dev: _.flatten([
     devPackages.css,
     devPackages.libs,
     devPackages.server,
@@ -122,7 +122,7 @@ module.exports = {
     devPackages.utils
   ]),
 
-  depends: flatten([
+  depends: _.flatten([
     packages.libs,
     packages.http,
     packages.react,
