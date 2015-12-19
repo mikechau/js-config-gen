@@ -54,8 +54,7 @@ var devPackages = {
 
   utils: [
     'rimraf',
-    'npm-check-updates',
-    'npm-shrinkwrap'
+    'npm-check-updates'
   ],
 
   webpack: [
