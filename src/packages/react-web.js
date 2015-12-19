@@ -28,7 +28,6 @@ var devPackages = {
   ],
 
   libs: [
-    'json5',
     'node-zopfli'
   ],
 
@@ -65,10 +64,8 @@ var devPackages = {
     'eslint-loader',
     'file-loader',
     'json-loader',
-    'json5-loader',
     'less-loader',
     'html-loader',
-    'markdown-loader',
     'null-loader',
     'raw-loader',
     'style-loader',
