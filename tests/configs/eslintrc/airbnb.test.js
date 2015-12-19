@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var eslintrcAirbnb = require('../../src/configs/eslintrc-airbnb');
+var eslintrcAirbnb = require('../../../src/configs/eslintrc/airbnb');
 
 test('eslintrcAirbnb.template', function(assert) {
   var actual = eslintrcAirbnb.template;
