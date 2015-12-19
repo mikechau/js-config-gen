@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 var airbnbEslintrc = require('../../../dist/airbnb-eslintrc');
-var babelEslintrc = require('./babel').json;
+var babelEslintrc = require('../../../dist/babel-eslintrc');
 
 var plugins = airbnbEslintrc.plugins.concat(babelEslintrc.plugins);
 
