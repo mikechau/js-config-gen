@@ -19,4 +19,4 @@ test('reactWebPackages.depends', function(assert) {
   assert.ok(actual.dev instanceof Array, 'should be an array');
   assert.ok(actual.dev.length > 0, 'should have an length that is greater than 0');
   assert.end();
-})
+});

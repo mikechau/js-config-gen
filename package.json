@@ -10,7 +10,9 @@
   "scripts": {
     "test": "tape ./tests/**/*.test.js | ./node_modules/.bin/tf-spec",
     "start": "node ./src/index.js",
-    "lint": "eslint ./src ./tests"
+    "lint": "eslint ./src ./tests",
+    "example:reset": "./scripts/example-reset.js",
+    "example:update-rbg": "./scripts/example-update-rbg.js"
   },
   "repository": {
     "type": "git",
