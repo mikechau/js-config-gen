@@ -1,0 +1,43 @@
+{
+  "name": "@mikechau/react-boilerplate-gen",
+  "version": "0.0.1",
+  "description": "Description goes here.",
+  "main": "src/index.js",
+  "bin": {
+    "react-boilerplate-gen-install": "bin/rbg-install.js",
+    "rbg-install": "bin/rbg-install.js"
+  },
+  "scripts": {
+    "test": "tape ./tests/**/*.test.js | ./node_modules/.bin/tf-spec",
+    "start": "node ./src/index.js",
+    "lint": "eslint ./src ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikechau/react-boilerplate-gen.git"
+  },
+  "keywords": [
+    "react",
+    "boilerplate",
+    "webpack",
+    "es6",
+    "karma"
+  ],
+  "author": "Mike Chau (@mikechau)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikechau/react-boilerplate-gen/issues"
+  },
+  "homepage": "https://github.com/mikechau/react-boilerplate-gen#readme",
+  "dependencies": {
+    "blueimp-tmpl": "^2.5.6",
+    "diff": "^2.2.1"
+  },
+  "devDependencies": {
+    "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "shelljs": "^0.5.3",
+    "tape": "^4.2.2"
+  }
+}

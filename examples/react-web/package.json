@@ -1,0 +1,17 @@
+{
+  "name": "react-web-example",
+  "version": "0.0.1",
+  "description": "example",
+  "main": "index.js",
+  "scripts": {
+    "setup": "rbg-install react-web",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "remove": "rm -rf ./node_modules",
+    "reinstall": "npm run remove && npm install"
+  },
+  "dependencies": {
+    "@mikechau/react-boilerplate-gen":"file:../../"
+  },
+  "author": "",
+  "license": "MIT"
+}
