@@ -2,6 +2,8 @@
   "name": "react-web-example",
   "version": "0.0.1",
   "description": "example",
+  "author": "",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "setup": "rbg-install react-web",
@@ -9,9 +11,9 @@
     "remove": "rm -rf ./node_modules",
     "reinstall": "npm run remove && npm install"
   },
-  "dependencies": {
-    "@mikechau/react-boilerplate-gen":"file:../../"
+  "devDependencies": {
+    "@mikechau/react-boilerplate-gen": "file:../../",
   },
-  "author": "",
-  "license": "MIT"
+  "dependencies": {
+  }
 }
