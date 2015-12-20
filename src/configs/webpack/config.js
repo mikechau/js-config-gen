@@ -39,18 +39,6 @@ function buildWebpackConfig(options) {
           scss: 'style!css!sass'
         }
       },
-      plugins: [
-      "new webpack.DefinePlugin({" +
-      "\n" +
-      '        "process.env": {' +
-      "\n" +
-      '           NODE_ENV: JSON.stringify(process.env.WEBPACK_ENV || process.env.NODE_ENV || "development")' +
-      "\n" +
-      "         }" +
-      "\n" +
-      "      })",
-      "      new webpack.NoErrorsPlugin()"
-      ],
       eslint: builder.getEslint(params.env)
     }
   };
