@@ -11,7 +11,8 @@ var EXPORT_MODULE_TEMPLATE = fs.readFileSync(path.resolve(__dirname, '../src/tem
 var CONFIGS = {
   'airbnb-eslintrc': require('../src/configs/eslintrc/airbnb'),
   'babel-eslintrc': require('../src/configs/eslintrc/babel'),
-  'base-eslintrc': require('../src/configs/eslintrc/base')
+  'base-eslintrc': require('../src/configs/eslintrc/base'),
+  'mocha-eslintrc': require('../src/configs/eslintrc/mocha')
 };
 
 Object.keys(CONFIGS).forEach(function(key) {
