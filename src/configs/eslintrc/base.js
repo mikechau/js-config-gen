@@ -8,7 +8,7 @@ var nodeEslintrc = require('./node').json;
 
 var plugins = airbnbEslintrc.plugins.concat(babelEslintrc.plugins);
 
-var myConfig = _.merge({},
+var config = _.merge({},
   airbnbEslintrc,
   browserEslintrc,
   nodeEslintrc,
@@ -19,6 +19,6 @@ var myConfig = _.merge({},
 );
 
 module.exports = {
-  template: JSON.stringify(myConfig, null, '  '),
-  json: myConfig
+  template: JSON.stringify(config, null, '  '),
+  json: config
 };

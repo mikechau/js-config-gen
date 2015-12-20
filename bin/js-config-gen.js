@@ -86,6 +86,8 @@ if (argv.force || argv.eslintrc || !shell.test('-f', '.eslintrc')) {
 }
 
 if (!argv['skip-tests']) {
+  shell.echo('----> Setting up tests...');
   shell.mkdir('-p', 'tests/browser');
   shell.mkdir('-p', 'tests/unit');
+  copyDistConfig('mocha-eslintrc.json', './tests/.eslintrc');
 }

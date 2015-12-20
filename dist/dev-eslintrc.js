@@ -32,62 +32,62 @@ module.exports = {
   ],
   "rules": {
     "accessor-pairs": 0,
-    "block-scoped-var": 2,
+    "block-scoped-var": 1,
     "complexity": [
       0,
       11
     ],
-    "consistent-return": 2,
+    "consistent-return": 1,
     "curly": [
-      2,
+      1,
       "multi-line"
     ],
-    "default-case": 2,
+    "default-case": 1,
     "dot-notation": [
-      2,
+      1,
       {
         "allowKeywords": true
       }
     ],
     "dot-location": 0,
-    "eqeqeq": 2,
-    "guard-for-in": 2,
+    "eqeqeq": 1,
+    "guard-for-in": 1,
     "no-alert": 1,
-    "no-caller": 2,
+    "no-caller": 1,
     "no-div-regex": 0,
-    "no-else-return": 2,
-    "no-empty-label": 2,
+    "no-else-return": 1,
+    "no-empty-label": 1,
     "no-eq-null": 0,
-    "no-eval": 2,
-    "no-extend-native": 2,
-    "no-extra-bind": 2,
-    "no-fallthrough": 2,
-    "no-floating-decimal": 2,
+    "no-eval": 1,
+    "no-extend-native": 1,
+    "no-extra-bind": 1,
+    "no-fallthrough": 1,
+    "no-floating-decimal": 1,
     "no-implicit-coercion": 0,
-    "no-implied-eval": 2,
+    "no-implied-eval": 1,
     "no-invalid-this": 0,
-    "no-iterator": 2,
-    "no-labels": 2,
-    "no-lone-blocks": 2,
-    "no-loop-func": 2,
-    "no-multi-spaces": 2,
-    "no-multi-str": 2,
-    "no-native-reassign": 2,
-    "no-new": 2,
-    "no-new-func": 2,
-    "no-new-wrappers": 2,
-    "no-octal": 2,
-    "no-octal-escape": 2,
-    "no-param-reassign": 2,
+    "no-iterator": 1,
+    "no-labels": 1,
+    "no-lone-blocks": 1,
+    "no-loop-func": 1,
+    "no-multi-spaces": 1,
+    "no-multi-str": 1,
+    "no-native-reassign": 1,
+    "no-new": 1,
+    "no-new-func": 1,
+    "no-new-wrappers": 1,
+    "no-octal": 1,
+    "no-octal-escape": 1,
+    "no-param-reassign": 1,
     "no-process-env": 0,
-    "no-proto": 2,
-    "no-redeclare": 2,
-    "no-return-assign": 2,
-    "no-script-url": 2,
-    "no-self-compare": 2,
-    "no-sequences": 2,
-    "no-throw-literal": 2,
-    "no-unused-expressions": 2,
+    "no-proto": 1,
+    "no-redeclare": 1,
+    "no-return-assign": 1,
+    "no-script-url": 1,
+    "no-self-compare": 1,
+    "no-sequences": 1,
+    "no-throw-literal": 1,
+    "no-unused-expressions": 1,
     "no-useless-call": 0,
     "no-void": 0,
     "no-warning-comments": [
@@ -101,50 +101,50 @@ module.exports = {
         "location": "start"
       }
     ],
-    "no-with": 2,
-    "radix": 2,
-    "vars-on-top": 2,
+    "no-with": 1,
+    "radix": 1,
+    "vars-on-top": 1,
     "wrap-iife": [
-      2,
+      1,
       "any"
     ],
-    "yoda": 2,
+    "yoda": 1,
     "comma-dangle": [
-      2,
+      1,
       "always-multiline"
     ],
     "no-cond-assign": [
-      2,
+      1,
       "always"
     ],
     "no-console": 1,
     "no-constant-condition": 1,
-    "no-control-regex": 2,
+    "no-control-regex": 1,
     "no-debugger": 1,
-    "no-dupe-args": 2,
-    "no-dupe-keys": 2,
-    "no-duplicate-case": 2,
-    "no-empty-character-class": 2,
-    "no-empty": 2,
-    "no-ex-assign": 2,
+    "no-dupe-args": 1,
+    "no-dupe-keys": 1,
+    "no-duplicate-case": 1,
+    "no-empty-character-class": 1,
+    "no-empty": 1,
+    "no-ex-assign": 1,
     "no-extra-boolean-cast": 0,
     "no-extra-parens": [
-      2,
+      1,
       "functions"
     ],
-    "no-extra-semi": 2,
-    "no-func-assign": 2,
-    "no-inner-declarations": 2,
-    "no-invalid-regexp": 2,
-    "no-irregular-whitespace": 2,
-    "no-negated-in-lhs": 2,
-    "no-obj-calls": 2,
-    "no-regex-spaces": 2,
-    "no-sparse-arrays": 2,
-    "no-unreachable": 2,
-    "use-isnan": 2,
+    "no-extra-semi": 1,
+    "no-func-assign": 1,
+    "no-inner-declarations": 1,
+    "no-invalid-regexp": 1,
+    "no-irregular-whitespace": 1,
+    "no-negated-in-lhs": 1,
+    "no-obj-calls": 1,
+    "no-regex-spaces": 1,
+    "no-sparse-arrays": 1,
+    "no-unreachable": 1,
+    "use-isnan": 1,
     "valid-jsdoc": 0,
-    "valid-typeof": 2,
+    "valid-typeof": 1,
     "no-unexpected-multiline": 0,
     "max-depth": [
       0,
@@ -177,48 +177,48 @@ module.exports = {
     "no-restricted-modules": 0,
     "no-sync": 0,
     "strict": [
-      2,
+      1,
       "never"
     ],
     "array-bracket-spacing": [
-      2,
+      1,
       "never"
     ],
     "brace-style": [
-      2,
+      1,
       "1tbs",
       {
         "allowSingleLine": true
       }
     ],
     "camelcase": [
-      2,
+      1,
       {
         "properties": "never"
       }
     ],
     "comma-spacing": [
-      2,
+      1,
       {
         "before": false,
         "after": true
       }
     ],
     "comma-style": [
-      2,
+      1,
       "last"
     ],
     "computed-property-spacing": [
-      2,
+      1,
       "never"
     ],
     "consistent-this": 0,
-    "eol-last": 2,
+    "eol-last": 1,
     "func-names": 1,
     "func-style": 0,
     "id-length": 0,
     "indent": [
-      2,
+      1,
       2,
       {
         "SwitchCase": 1,
@@ -226,11 +226,11 @@ module.exports = {
       }
     ],
     "jsx-quotes": [
-      2,
+      1,
       "prefer-double"
     ],
     "key-spacing": [
-      2,
+      1,
       {
         "beforeColon": false,
         "afterColon": true
@@ -246,79 +246,79 @@ module.exports = {
     "no-continue": 0,
     "no-inline-comments": 0,
     "no-lonely-if": 0,
-    "no-mixed-spaces-and-tabs": 2,
+    "no-mixed-spaces-and-tabs": 1,
     "no-multiple-empty-lines": [
-      2,
+      1,
       {
-        "max": 2,
+        "max": 1,
         "maxEOF": 1
       }
     ],
-    "no-nested-ternary": 2,
-    "no-new-object": 2,
-    "no-spaced-func": 2,
+    "no-nested-ternary": 1,
+    "no-new-object": 1,
+    "no-spaced-func": 1,
     "no-ternary": 0,
-    "no-trailing-spaces": 2,
+    "no-trailing-spaces": 1,
     "no-underscore-dangle": 0,
     "no-unneeded-ternary": 0,
     "object-curly-spacing": [
-      2,
+      1,
       "always"
     ],
     "one-var": [
-      2,
+      1,
       "never"
     ],
     "operator-assignment": 0,
     "operator-linebreak": 0,
     "padded-blocks": [
-      2,
+      1,
       "never"
     ],
     "quote-props": 0,
     "quotes": [
-      2,
+      1,
       "single",
       "avoid-escape"
     ],
     "id-match": 0,
     "semi-spacing": [
-      2,
+      1,
       {
         "before": false,
         "after": true
       }
     ],
     "semi": [
-      2,
+      1,
       "always"
     ],
     "sort-vars": 0,
     "space-before-keywords": [
-      2,
+      1,
       "always"
     ],
     "space-after-keywords": [
-      2,
+      1,
       "always"
     ],
-    "space-before-blocks": 2,
+    "space-before-blocks": 1,
     "space-before-function-paren": [
-      2,
+      1,
       {
         "anonymous": "always",
         "named": "never"
       }
     ],
     "space-in-parens": [
-      2,
+      1,
       "never"
     ],
-    "space-infix-ops": 2,
-    "space-return-throw-case": 2,
+    "space-infix-ops": 1,
+    "space-return-throw-case": 1,
     "space-unary-ops": 0,
     "spaced-comment": [
-      2,
+      1,
       "always",
       {
         "exceptions": [
@@ -334,24 +334,24 @@ module.exports = {
     "wrap-regex": 0,
     "init-declarations": 0,
     "no-catch-shadow": 0,
-    "no-delete-var": 2,
+    "no-delete-var": 1,
     "no-label-var": 0,
-    "no-shadow-restricted-names": 2,
-    "no-shadow": 2,
+    "no-shadow-restricted-names": 1,
+    "no-shadow": 1,
     "no-undef-init": 0,
-    "no-undef": 2,
+    "no-undef": 1,
     "no-undefined": 0,
     "no-unused-vars": [
-      2,
+      1,
       {
         "vars": "local",
         "args": "after-used"
       }
     ],
-    "no-use-before-define": 2,
+    "no-use-before-define": 1,
     "arrow-parens": 0,
     "arrow-spacing": [
-      2,
+      1,
       {
         "before": true,
         "after": true
@@ -360,51 +360,51 @@ module.exports = {
     "constructor-super": 0,
     "generator-star-spacing": 0,
     "no-class-assign": 0,
-    "no-const-assign": 2,
+    "no-const-assign": 1,
     "no-this-before-super": 0,
-    "no-var": 2,
+    "no-var": 1,
     "object-shorthand": 0,
-    "prefer-const": 2,
+    "prefer-const": 1,
     "prefer-spread": 0,
     "prefer-reflect": 0,
     "require-yield": 0,
     "react/display-name": 0,
     "react/jsx-boolean-value": [
-      2,
+      1,
       "never"
     ],
     "react/jsx-closing-bracket-location": [
-      2,
+      1,
       "line-aligned"
     ],
     "react/jsx-curly-spacing": 0,
     "react/jsx-indent-props": [
-      2,
+      1,
       2
     ],
     "react/jsx-no-duplicate-props": 0,
-    "react/jsx-no-undef": 2,
+    "react/jsx-no-undef": 1,
     "react/jsx-sort-prop-types": 0,
     "react/jsx-sort-props": 0,
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
     "react/no-danger": 0,
     "react/no-did-mount-set-state": [
-      2,
+      1,
       "allow-in-func"
     ],
     "react/no-did-update-set-state": [
-      2,
+      1,
       "allow-in-func"
     ],
-    "react/no-multi-comp": 2,
-    "react/no-unknown-property": 2,
-    "react/prop-types": 2,
-    "react/react-in-jsx-scope": 2,
+    "react/no-multi-comp": 1,
+    "react/no-unknown-property": 1,
+    "react/prop-types": 1,
+    "react/react-in-jsx-scope": 1,
     "react/require-extension": 0,
-    "react/self-closing-comp": 2,
+    "react/self-closing-comp": 1,
     "react/sort-comp": [
-      2,
+      1,
       {
         "order": [
           "lifecycle",
@@ -417,7 +417,7 @@ module.exports = {
       }
     ],
     "react/wrap-multilines": [
-      2,
+      1,
       {
         "declaration": true,
         "assignment": true,

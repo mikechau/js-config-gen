@@ -13,7 +13,9 @@ var CONFIGS = {
   'babel-eslintrc': require('../src/configs/eslintrc/babel'),
   'base-eslintrc': require('../src/configs/eslintrc/base'),
   'mocha-eslintrc': require('../src/configs/eslintrc/mocha'),
-  'babelrc': require('../src/configs/babelrc')
+  'babelrc': require('../src/configs/babelrc'),
+  'test-eslintrc': require('../src/configs/eslintrc/test'),
+  'dev-eslintrc': require('../src/configs/eslintrc/development')
 };
 
 function generateConfigJson(key, template) {
