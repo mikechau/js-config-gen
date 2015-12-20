@@ -17,7 +17,7 @@ as a base and do some heavy customizations or want to see what they are.
 
 ### Testing
 - [ ] Review [babel-plugin-rewire](https://github.com/speedskater/babel-plugin-rewire/issues/44) for Babel 6 compatibility
-- [ ] Integration testing with nightwatch, use Gulp to start the server, run nightwatch, then kill the server [link](http://stackoverflow.com/a/33934969/5578411)
+- [ ] Integration testing with nightwatch, use Gulp to start the server, run nightwatch, then kill the server on completion [link](http://stackoverflow.com/a/33934969/5578411)
 - [ ] PhantomJS support
 
 ### Development
