@@ -3,3 +3,4 @@ node_modules/
 *.swp
 examples/*/.babelrc
 examples/*/.eslintrc
+examples/*/tests

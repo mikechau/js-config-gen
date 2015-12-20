@@ -12,19 +12,28 @@ var BASE_DIR = path.resolve(__dirname, '..');
 var DIST_DIR = path.join(BASE_DIR, 'dist');
 var TEMPLATES_DIR = path.join(BASE_DIR, 'src', 'templates');
 var VALID_PACKAGES = ['react-web'];
-var BASE_ESLINT_PATH = './' + path.join('node_modules', projectName(BASE_DIR), 'dist', 'base-eslintrc');
+var DIST_ESLINT_DIR = path.join('node_modules', projectName(BASE_DIR), 'dist');
+var BASE_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'base-eslintrc');
+var DEV_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'dev-eslintrc');
+var TEST_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'test-eslintrc');
 
 var packages = [];
 var packagesList = argv.install || argv.i || '';
 
 function npmInstall(pkgs) {
-  pkgs.forEach(function(pkg) {
+  var total = pkgs.length;
+
+  pkgs.forEach(function(pkg, index) {
+    shell.echo('');
+    shell.echo('----> Install Package: ' + pkg + ' (' + index + '/' + total +')');
     shell.exec('npm install --save ' + pkg);
   });
 }
 
 function devNpmInstall(pkgs) {
-  pkgs.forEach(function(pkg) {
+  pkgs.forEach(function(pkg, index) {
+    shell.echo('');
+    shell.echo('----> Install Dev Package: ' + pkg + ' (' + index + '/' + total + ')');
     shell.exec('npm install --save-dev ' + pkg);
   });
 }
@@ -83,11 +92,19 @@ if (argv.force || argv.babelrc || !shell.test('-f', '.babelrc')) {
 if (argv.force || argv.eslintrc || !shell.test('-f', '.eslintrc')) {
   shell.echo('----> Generating project .eslintrc...');
   generateTemplate('project-eslintrc.json.tmpl', BASE_ESLINT_PATH, '.eslintrc');
+
+  shell.echo('----> Generating development project .eslintrc');
+  generateTemplate('project-eslintrc.json.tmpl', DEV_ESLINT_PATH, '.eslintrc.dev');
 }
 
 if (!argv['skip-tests']) {
-  shell.echo('----> Setting up tests...');
+  shell.echo('----> Setting up test dirs...');
   shell.mkdir('-p', 'tests/browser');
   shell.mkdir('-p', 'tests/unit');
-  copyDistConfig('mocha-eslintrc.json', './tests/.eslintrc');
+
+  if (argv.force || !shell.test('-f', './tests/.eslintrc')) {
+    shell.echo('----> Generating test project .eslintrc...');
+    generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc')
+    copyDistConfig('test-eslintrc.json', './tests/.eslintrc');
+  }
 }
