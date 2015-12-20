@@ -38,7 +38,6 @@
   "homepage": "https://github.com/mikechau/js-config-gen#readme",
   "dependencies": {
     "blueimp-tmpl": "^2.5.7",
-    "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.1.1",
     "glob": "^6.0.1",
     "lodash": "^3.10.1",
@@ -47,6 +46,7 @@
     "shelljs": "^0.5.3"
   },
   "devDependencies": {
+    "eslint": "^1.10.3",
     "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
     "tape": "^4.2.2"
   }
