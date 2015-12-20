@@ -16,7 +16,6 @@ function buildWebpackConfig(options) {
   }
 
   config = {
-    require: {},
     test: (params.env === 'test'),
     production: (params.env === 'production'),
     development: (params.env === 'development'),
