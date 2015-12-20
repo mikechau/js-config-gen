@@ -52,6 +52,7 @@ if (argv.help) {
   shell.echo('');
   shell.echo('  --install, -i: install predefined package list, options: [' + VALID_PACKAGES.join(',') + ']');
   shell.echo('  --skip-install: override to skip installing of packages');
+  shell.echo('  --skip-tests: override to skip setup for tests');
   shell.echo('  --force, -f: overwrite existing configs, does not run install');
   shell.echo('  --eslintrc: create eslintrc, will override existing project eslintrc');
   shell.echo('  --babelrc: create babelrc, will override existing project babelrc');
@@ -82,4 +83,9 @@ if (argv.force || argv.babelrc || !shell.test('-f', '.babelrc')) {
 if (argv.force || argv.eslintrc || !shell.test('-f', '.eslintrc')) {
   shell.echo('----> Generating project .eslintrc...');
   generateTemplate('project-eslintrc.json.tmpl', BASE_ESLINT_PATH, '.eslintrc');
+}
+
+if (!argv['skip-tests']) {
+  shell.mkdir('-p', 'tests/browser');
+  shell.mkdir('-p', 'tests/unit');
 }
