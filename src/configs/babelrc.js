@@ -1,10 +1,10 @@
 'use strict';
 
 var tmpl = require('blueimp-tmpl').tmpl;
-var fs = require('fs');
+var readTemplate = require('../utils/read-template');
 var path = require('path');
 
-var babelrcTemplate = fs.readFileSync(path.resolve(__dirname, '../templates/babelrc.json.tmpl'), 'utf8');
+var babelrcTemplate = readTemplate(path.resolve(__dirname, '../templates/babelrc.json.tmpl'));
 var template = tmpl(babelrcTemplate, {});
 
 module.exports = {

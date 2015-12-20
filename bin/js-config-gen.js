@@ -106,7 +106,7 @@ if (!argv['skip-tests']) {
 
   if (argv.force || !shell.test('-f', './tests/.eslintrc')) {
     shell.echo('----> Generating test project .eslintrc...');
-    generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc')
+    generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
     copyDistConfig('test-eslintrc.json', './tests/.eslintrc');
   }
 }

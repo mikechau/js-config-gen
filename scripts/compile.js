@@ -3,11 +3,11 @@
 
 var shell = require('shelljs');
 var path = require('path');
-var fs = require('fs');
 var tmpl = require('blueimp-tmpl').tmpl;
+var readTemplate = require('../src/utils/read-template');
 
 var BASE_DIR = path.resolve(__dirname, '../dist');
-var EXPORT_MODULE_TEMPLATE = fs.readFileSync(path.resolve(__dirname, '../src/templates/module.js.tmpl'), 'utf8');
+var EXPORT_MODULE_TEMPLATE = readTemplate(path.resolve(__dirname, '../src/templates/module.js.tmpl'));
 var CONFIGS = {
   'airbnb-eslintrc': require('../src/configs/eslintrc/airbnb'),
   'babel-eslintrc': require('../src/configs/eslintrc/babel'),
