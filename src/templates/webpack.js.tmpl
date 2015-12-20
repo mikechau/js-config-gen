@@ -106,10 +106,6 @@ module.exports = {
       }
     ],
 
-    "plugins": [
-      {%# o.webpack.plugins.join(",\n") %}
-    ],
-
     "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "      ").replace(/}$/g, "    }") %}{% } else { %}{}{% } %}
   }
 };
