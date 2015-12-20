@@ -3,19 +3,15 @@
 var test = require('tape');
 var babelrc = require('../../src/configs/babelrc');
 
-test('babelrc.template', function(assert) {
-  var actual = babelrc.template;
+test('babelrc', function(assert) {
+  var actual = babelrc;
 
-  assert.equal(typeof actual, 'string', 'should be a string');
-  assert.notEqual(actual, '', 'should not be empty');
-  assert.end();
-});
+  assert.equal(typeof actual.template, 'string', '.template should be a string');
+  assert.notEqual(actual.template, '', '.template should not be empty');
 
-test('babelrc.json', function(assert) {
-  var actual = babelrc.json;
+  assert.equal(typeof actual.json, 'object', '.json should be an object');
+  assert.ok(('env' in actual.json), '.json should have an "env" key');
+  assert.ok(('development' in actual.json.env), '.json should have an "development" key in "env"');
 
-  assert.equal(typeof actual, 'object', 'should be an object');
-  assert.ok(('env' in actual), 'should have an "env" key');
-  assert.ok(('development' in actual.env), 'should have an "development" key in "env"');
   assert.end();
 });

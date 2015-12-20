@@ -3,18 +3,14 @@
 var test = require('tape');
 var testEslintrc = require('../../../src/configs/eslintrc/test');
 
-test('testEslintrc.template', function(assert) {
-  var actual = testEslintrc.template;
+test('testEslintrc', function(assert) {
+  var actual = testEslintrc;
 
-  assert.equal(typeof actual, 'string', 'should be a string');
-  assert.notEqual(actual, '', 'should not be empty');
-  assert.end();
-});
+  assert.equal(typeof actual.template, 'string', '.template should be a string');
+  assert.notEqual(actual.template, '', '.template should not be empty');
 
-test('testEslintrc.json', function(assert) {
-  var actual = testEslintrc.json;
+  assert.equal(typeof actual.json, 'object', '.json should be an object');
+  assert.ok(('rules' in actual.json), '.json should have a "rules" key');
 
-  assert.equal(typeof actual, 'object', 'should be an object');
-  assert.ok(('rules' in actual), 'should have a "rules" key');
   assert.end();
 });
