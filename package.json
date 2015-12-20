@@ -8,7 +8,8 @@
   },
   "scripts": {
     "compile": "npm run lint && ./scripts/compile.js",
-    "test": "npm run lint && tape ./tests/index.js | ./node_modules/.bin/tf-spec",
+    "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
+    "check": "npm run lint && npm run test",
     "start": "node ./src/index.js",
     "lint": "eslint ./src ./tests ./scripts ./bin",
     "example:package-reset": "./scripts/example-package-reset.js",
