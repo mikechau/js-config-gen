@@ -4,7 +4,10 @@ var _ = require('lodash');
 
 var devPackages = {
   babel: [
-    'babel-core',
+    'babel-core'
+  ],
+
+  babelAddons: [
     'babel-eslint',
     'babel-plugin-react-transform',
     'babel-plugin-transform-runtime',
@@ -21,7 +24,10 @@ var devPackages = {
   ],
 
   eslint: [
-    'eslint',
+    'eslint'
+  ],
+
+  eslintPlugins: [
     'eslint-plugin-babel',
     'eslint-plugin-react',
     'eslint-plugin-mocha'
@@ -58,7 +64,10 @@ var devPackages = {
   webpack: [
     'webpack',
     'webpack-dev-middleware',
-    'webpack-hot-middleware',
+    'webpack-hot-middleware'
+  ],
+
+  webpackLoaders: [
     'babel-loader',
     'css-loader',
     'eslint-loader',
@@ -69,7 +78,10 @@ var devPackages = {
     'null-loader',
     'raw-loader',
     'style-loader',
-    'url-loader',
+    'url-loader'
+  ],
+
+  webpackPlugins: [
     'html-webpack-plugin',
     'clean-webpack-plugin',
     'compression-webpack-plugin',
@@ -111,12 +123,16 @@ module.exports = {
     devPackages.css,
     devPackages.libs,
     devPackages.server,
-    devPackages.webpack,
-    devPackages.babel,
     devPackages.eslint,
     devPackages.webpack,
+    devPackages.babel,
+    devPackages.webpack,
     devPackages.testing,
-    devPackages.utils
+    devPackages.utils,
+    devPackages.babelAddons,
+    devPackages.eslintPlugins,
+    devPackages.webpackLoaders,
+    devPackages.webpackPlugins
   ]),
 
   depends: _.flatten([
