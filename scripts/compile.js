@@ -19,7 +19,7 @@ var CONFIGS = {
 };
 
 function generateConfigJson(key, template) {
-  var destination = path.join(BASE_DIR, (key + '.json'));
+  var destination = path.join(BASE_DIR, 'json', (key + '.json'));
   template.to(destination);
 }
 
@@ -29,10 +29,12 @@ function generateConfigJs(key, data) {
   template.to(destination);
 }
 
+shell.mkdir('-p', path.join(BASE_DIR, 'json'));
+
 Object.keys(CONFIGS).forEach(function(key) {
   var config = CONFIGS[key];
 
-  shell.echo('----> Generating ' + key + '.json to dist...');
+  shell.echo('----> Generating ' + key + '.json to dist/json...');
   generateConfigJson(key, config.template);
 
   shell.echo('----> Generating ' + key + '.js to dist...');
