@@ -33,10 +33,10 @@ function buildWebpackConfig(options) {
       debug: builder.getDebug(params.env),
       module: {
         loaders: {
-          javascript: 'babel',
-          css: 'style!css',
-          less: 'style!css!less',
-          scss: 'style!css!sass'
+          javascript: params.javascriptLoader || 'babel',
+          css: params.cssLoader || 'style!css',
+          less: params.lessLoader || 'style!css!less',
+          scss: params.scssLoader || 'style!css!sass'
         }
       },
       eslint: builder.getEslint(params.env)
