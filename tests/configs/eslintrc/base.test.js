@@ -14,4 +14,3 @@ test('baseEslintrc', function(assert) {
 
   assert.end();
 });
-

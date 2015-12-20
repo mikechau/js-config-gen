@@ -7,7 +7,6 @@ test('generateWebpackConfig()', function(assert) {
   var actual = generateWebpackConfig({
     env: 'development'
   });
-  var expected = {};
 
   assert.equal(typeof actual.template, 'string', '.template should be a string');
   assert.notEqual(actual.template, '', '.template should not be empty');

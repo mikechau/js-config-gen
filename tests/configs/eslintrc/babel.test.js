@@ -14,4 +14,3 @@ test('eslintrcBabel', function(assert) {
 
   assert.end();
 });
-
