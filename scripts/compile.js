@@ -16,15 +16,23 @@ var CONFIGS = {
   'babelrc': require('../src/configs/babelrc')
 };
 
+function generateConfigJson(key, template) {
+  var destination = path.join(BASE_DIR, (key + '.json'));
+  template.to(destination);
+}
+
+function generateConfigJs(key, data) {
+  var template = tmpl(EXPORT_MODULE_TEMPLATE, data);
+  var destination = path.join(BASE_DIR, (key + '.js'));
+  template.to(destination);
+}
+
 Object.keys(CONFIGS).forEach(function(key) {
   var config = CONFIGS[key];
 
   shell.echo('----> Generating ' + key + '.json to dist...');
-  var jsonPath = path.join(BASE_DIR, (key + '.json'));
-  config.template.to(jsonPath);
+  generateConfigJson(key, config.template);
 
   shell.echo('----> Generating ' + key + '.js to dist...');
-  var exportModuleTemplate = tmpl(EXPORT_MODULE_TEMPLATE, config.json);
-  var exportModulePath = path.join(BASE_DIR, (key + '.js'));
-  exportModuleTemplate.to(exportModulePath);
+  generateConfigJs(key, config.json);
 });
