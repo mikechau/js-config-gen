@@ -4,7 +4,8 @@ var _ = require('lodash');
 
 var devPackages = {
   babel: [
-    'babel-core'
+    'babel-core',
+    'babel-runtime'
   ],
 
   babelAddons: [
