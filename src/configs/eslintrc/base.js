@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var airbnbEslintrc = require('../../../dist/airbnb-eslintrc');
+var airbnbEslintrc = require('./airbnb').json;
 var babelEslintrc = require('./babel').json;
 var browserEslintrc = require('./browser').json;
 var nodeEslintrc = require('./node').json;
