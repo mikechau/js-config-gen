@@ -2,3 +2,4 @@ node_modules/
 *.log
 *.swp
 examples/*/.babelrc
+examples/*/.eslintrc

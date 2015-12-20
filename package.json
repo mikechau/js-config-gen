@@ -7,6 +7,7 @@
     "js-config-gen": "bin/js-config-gen.js"
   },
   "scripts": {
+    "compile": "./scripts/compile.js",
     "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
     "start": "node ./src/index.js",
     "lint": "eslint ./src ./tests",
@@ -41,6 +42,7 @@
     "glob": "^6.0.1",
     "lodash": "^3.10.1",
     "minimist": "^1.2.0",
+    "project-name": "^0.2.3",
     "shelljs": "^0.5.3"
   },
   "devDependencies": {

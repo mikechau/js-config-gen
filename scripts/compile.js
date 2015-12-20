@@ -12,7 +12,8 @@ var CONFIGS = {
   'airbnb-eslintrc': require('../src/configs/eslintrc/airbnb'),
   'babel-eslintrc': require('../src/configs/eslintrc/babel'),
   'base-eslintrc': require('../src/configs/eslintrc/base'),
-  'mocha-eslintrc': require('../src/configs/eslintrc/mocha')
+  'mocha-eslintrc': require('../src/configs/eslintrc/mocha'),
+  'babelrc': require('../src/configs/babelrc')
 };
 
 Object.keys(CONFIGS).forEach(function(key) {
