@@ -1,6 +1,6 @@
 {
   "name": "@mikechau/js-config-gen",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "@mikechau's default configs for javascript projects.",
   "main": "src/index.js",
   "bin": {
@@ -16,7 +16,14 @@
     "example:update-self": "./scripts/example-update-self.js",
     "git:hide": "git update-index --assume-unchanged ./examples/*/package.json",
     "git:unhide": "git update-index --no-assume-unchanged ./examples/*/package.json",
-    "clean": "rm -rf dist && mkdir -p dist"
+    "clean": "rm -rf dist && mkdir -p dist",
+    "publish": "git push && npm publish",
+    "patch": "npm run check && npm version patch",
+    "minor": "npm run check && npm run compile && npm version minor",
+    "major": "npm run check && npm run compile && npm version major",
+    "dist-upgrade": "npm run major && npm publish",
+    "update": "npm run minor && npm publish",
+    "upgrade": "npm run patch && npm publish"
   },
   "repository": {
     "type": "git",
