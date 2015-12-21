@@ -6,3 +6,4 @@ examples/*/.eslintrc
 examples/*/.eslintrc.*
 examples/*/tests
 examples/*/webpack.config.*
+examples/*/webpack-dev*

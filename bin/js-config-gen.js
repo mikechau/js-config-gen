@@ -69,6 +69,7 @@ if (argv.help) {
   shell.echo('  --eslintrc: create eslintrc');
   shell.echo('  --babelrc: create babelrc');
   shell.echo('  --webpack: create webpack configs');
+  shell.echo('  --webpack-dev-server: create webpack dev server config');
   shell.echo('  --karma: create karma configs');
   shell.exit(0);
 }
@@ -136,6 +137,13 @@ if (argv.install || webpackGroup) {
   if (argv.force || !shell.test('-f', 'webpack.config.prod.js')) {
     shell.echo('----> Generating webpack.config.production.js...');
     require('../src/configs/webpack/' + webpackGroup).project.production.template.to('webpack.config.prod.js');
+  }
+}
+
+if (argv.install || argv['webpack-dev-server']) {
+  if (argv.force || !shell.test('-f', 'webpack-dev-server.js')) {
+    shell.echo('----> Generating webpack-dev.server.js...');
+    copyDistConfig('webpack-dev.server.js', 'webpack-dev.server.js');
   }
 }
 

@@ -80,3 +80,6 @@ shell.echo('----> Generating karma-test-index.js to dist');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/karma-test-index.js.tmpl'), path.join(BASE_DIR, 'karma-test-index.js'));
 
 require('../src/configs/karma/project-config')().template.to(path.join(BASE_DIR, 'examples', 'project-karma.js'));
+
+shell.echo('----> Generating webpack-dev.server.js to dist');
+shell.cp('-f', path.resolve(__dirname, '../src/templates/webpack-dev.server.js.tmpl'), path.join(BASE_DIR, 'webpack-dev.server.js'));
