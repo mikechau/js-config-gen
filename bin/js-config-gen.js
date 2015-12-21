@@ -19,6 +19,7 @@ var TEST_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'test-eslintrc');
 
 var packages = [];
 var packagesList = argv.install || argv.i || '';
+var webpackGroup = argv.webpack || packagesList || '';
 
 function npmInstall(pkgs) {
   var total = pkgs.length;
@@ -65,8 +66,10 @@ if (argv.help) {
   shell.echo('  --skip-install: override to skip installing of packages');
   shell.echo('  --skip-tests: override to skip setup for tests');
   shell.echo('  --force, -f: overwrite existing configs, does not run install');
-  shell.echo('  --eslintrc: create eslintrc, will override existing project eslintrc');
-  shell.echo('  --babelrc: create babelrc, will override existing project babelrc');
+  shell.echo('  --eslintrc: create eslintrc');
+  shell.echo('  --babelrc: create babelrc');
+  shell.echo('  --webpack: create webpack configs');
+  shell.exit(0);
 }
 
 if (!argv['skip-install'] && argv.install || !argv['skip-install'] && argv.i) {
@@ -108,5 +111,22 @@ if (!argv['skip-tests']) {
     shell.echo('----> Generating test project .eslintrc...');
     generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
     copyDistConfig('test-eslintrc.json', './tests/.eslintrc');
+  }
+}
+
+if (argv.force || webpackGroup) {
+  if (argv.force || !shell.test('-f', 'webpack.config.dev.js')) {
+    shell.echo('----> Generating webpack.config.dev.js...');
+    copyDistConfig(webpackGroup + '/project-webpack.config.development.js', 'webpack.config.dev.js');
+  }
+
+  if (argv.force || !shell.test('-f', 'webpack.config.test.js')) {
+    shell.echo('----> Generating webpack.config.test.js...');
+    copyDistConfig(webpackGroup + '/project-webpack.config.test.js', 'webpack.config.test.js');
+  }
+
+  if (argv.force || !shell.test('-f', 'webpack.config.production.js')) {
+    shell.echo('----> Generating webpack.config.production.js...');
+    copyDistConfig(webpackGroup + '/project-webpack.config.production.js', 'webpack.config.prod.js');
   }
 }
