@@ -1,5 +1,7 @@
 # js-config-gen
 
+[![npm version](https://badge.fury.io/js/%40mikechau%2Fjs-config-gen.svg)](https://badge.fury.io/js/%40mikechau%2Fjs-config-gen)
+
 Inspired by [@petehunt's](https://github.com/petehunt) [rwb](https://github.com/petehunt/rwb).
 
 My personal node module for scaffolding application using JavaScript. Primarily
