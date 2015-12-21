@@ -49,7 +49,7 @@ function generateConfigWebpack(group, name, template) {
   template.to(destination);
 }
 
-['json', 'react-web'].forEach(function(dir) {
+['json', 'react-web/examples'].forEach(function(dir) {
   shell.mkdir('-p', path.join(BASE_DIR, dir));
 });
 
@@ -69,5 +69,6 @@ WEBPACK_GROUPS.forEach(function(group) {
   ['development', 'test', 'production'].forEach(function(env) {
     shell.echo('----> Generating ' + 'base-webpack.config.' + env + '.js' + ' to dist/' + group);
     generateConfigWebpack(group, 'base-webpack.config.' + env, config.base[env].template);
+    generateConfigWebpack(group, '/examples/project-webpack.config.' + env, config.project[env].template);
   });
 });
