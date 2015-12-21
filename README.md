@@ -81,7 +81,7 @@ Args:
 
 ### Development
 - [x] Dev Server
-- [ ] Compatibility with Rails
+- [ ] Flow
 - [ ] Bootswatch
 - [ ] CSS Modules
 - [ ] Native support
