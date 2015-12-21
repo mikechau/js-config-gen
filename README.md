@@ -49,6 +49,12 @@ Args:
   - PurifyCSS
   - Karma / Mocha for browser/unit testing, MJ's Expect for Assertions
 
+## ISSUES
+
+- `npm test` triggers: `Error: cannot resolve path (or pattern) './tests/**/*.spec.js'`.
+
+  The solution here is to add a mocha test, it is set to look for tests that end in `*.spec.js`, since no tests are generated it fails because it cannot find any tests.
+
 ## TODO
 
 ### Script
