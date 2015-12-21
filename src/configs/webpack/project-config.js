@@ -18,12 +18,12 @@ function buildProjectWebpackConfig(options) {
     env: params.env
   };
 
-  config.webpackConfigPath = './' + path.join('node_modules', projectName(BASE_DIR), 'dist', params.group, 'base-webpack.config.' + params.env + '.js');
+  config.webpackConfigPath = './' + path.join('node_modules', projectName(BASE_DIR), 'dist', params.group, 'base-webpack.config.' + params.env);
 
   return config;
 }
 
-module.exports = function generateWebpackConfig(options) {
+module.exports = function generateProjectWebpackConfig(options) {
   var source = path.resolve(__dirname, '../../templates/project-webpack.js.tmpl');
   var webpackTemplate = readTemplate(source);
   var webpackConfig = buildProjectWebpackConfig(options);

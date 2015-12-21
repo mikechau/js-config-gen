@@ -69,6 +69,7 @@ if (argv.help) {
   shell.echo('  --eslintrc: create eslintrc');
   shell.echo('  --babelrc: create babelrc');
   shell.echo('  --webpack: create webpack configs');
+  shell.echo('  --karma: create karma configs');
   shell.exit(0);
 }
 
@@ -89,20 +90,27 @@ if (!argv['skip-install'] && argv.install || !argv['skip-install'] && argv.i) {
   devNpmInstall(packages.dev);
 }
 
-if (argv.force || argv.babelrc || !shell.test('-f', '.babelrc')) {
+if (
+  ((argv.install || argv.babelrc) && argv.force) ||
+  ((argv.install || argv.babelrc) && !shell.test('-f', '.babelrc'))
+) {
   shell.echo('----> Generating .babelrc...');
   copyDistConfig('/json/babelrc.json', '.babelrc');
 }
 
-if (argv.force || argv.eslintrc || !shell.test('-f', '.eslintrc')) {
-  shell.echo('----> Generating project .eslintrc...');
-  generateTemplate('project-eslintrc.json.tmpl', BASE_ESLINT_PATH, '.eslintrc');
+if (argv.install || argv.eslintrc) {
+  if (argv.force || !shell.test('-f', '.eslintrc')) {
+    shell.echo('----> Generating project .eslintrc...');
+    generateTemplate('project-eslintrc.json.tmpl', BASE_ESLINT_PATH, '.eslintrc');
+  }
 
-  shell.echo('----> Generating development project .eslintrc');
-  generateTemplate('project-eslintrc.json.tmpl', DEV_ESLINT_PATH, '.eslintrc.dev');
+  if (argv.force || !shell.test('-f', '.eslintrc.dev')) {
+    shell.echo('----> Generating development project .eslintrc.dev');
+    generateTemplate('project-eslintrc.json.tmpl', DEV_ESLINT_PATH, '.eslintrc.dev');
+  }
 }
 
-if (!argv['skip-tests']) {
+if ((argv.install && !argv['skip-tests']) || !argv['skip-tests']) {
   shell.echo('----> Setting up test dirs...');
   shell.mkdir('-p', 'tests/browser');
   shell.mkdir('-p', 'tests/unit');
@@ -114,7 +122,7 @@ if (!argv['skip-tests']) {
   }
 }
 
-if (argv.force || webpackGroup) {
+if (argv.install || webpackGroup) {
   if (argv.force || !shell.test('-f', 'webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');
     require('../src/configs/webpack/' + webpackGroup).project.development.template.to('webpack.config.dev.js');
@@ -128,5 +136,17 @@ if (argv.force || webpackGroup) {
   if (argv.force || !shell.test('-f', 'webpack.config.prod.js')) {
     shell.echo('----> Generating webpack.config.production.js...');
     require('../src/configs/webpack/' + webpackGroup).project.production.template.to('webpack.config.prod.js');
+  }
+}
+
+if (argv.install || argv.karma) {
+  if (argv.force || !shell.test('-f', 'karma.js')) {
+    shell.echo('----> Generating project karma.js');
+    require('../src/configs/karma/project-config')().template.to('karma.js');
+  }
+
+  if (argv.force || !shell.test('-f', 'tests/browser/index.js')) {
+    shell.echo('----> Generating project tests/browser/index.js');
+    copyDistConfig('karma-test-index.js', './tests/browser/index.js');
   }
 }
