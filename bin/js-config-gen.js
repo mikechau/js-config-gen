@@ -13,9 +13,9 @@ var DIST_DIR = path.join(BASE_DIR, 'dist');
 var TEMPLATES_DIR = path.join(BASE_DIR, 'src', 'templates');
 var VALID_PACKAGES = ['react-web'];
 var DIST_ESLINT_DIR = path.join('node_modules', projectName(BASE_DIR), 'dist');
-var BASE_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'base-eslintrc');
-var DEV_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'dev-eslintrc');
-var TEST_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'test-eslintrc');
+var BASE_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'json', 'base-eslintrc');
+var DEV_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'json', 'dev-eslintrc');
+var TEST_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'json', 'test-eslintrc');
 
 var packages = [];
 var packagesList = argv.install || argv.i || '';
