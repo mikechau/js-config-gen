@@ -64,19 +64,32 @@ if (argv.help) {
   shell.echo('Args:');
   shell.echo('');
   shell.echo('  --install, -i: install predefined package list, options: [' + VALID_PACKAGES.join(',') + ']');
-  shell.echo('  --skip-install: override to skip installing of packages');
-  shell.echo('  --skip-tests: override to skip setup for tests');
-  shell.echo('  --force, -f: overwrite existing configs, does not run install');
+  shell.echo('  --force, -f: overwrite existing configs, does not override --skip-install or --skip-commands');
   shell.echo('  --eslintrc: create eslintrc');
   shell.echo('  --babelrc: create babelrc');
   shell.echo('  --webpack: create webpack configs');
   shell.echo('  --webpack-dev-server: create webpack dev server config');
   shell.echo('  --karma: create karma configs');
   shell.echo('  --index-html: creates dev & prod index.html');
+  shell.echo('  --skip-install: override to skip installing of packages');
+  shell.echo('  --skip-tests: override to skip setup for tests');
+  shell.echo('  --skip-commands: override to skip adding of commands');
   shell.exit(0);
 }
 
-if (!argv['skip-install'] && packageInstall || !argv['skip-install'] && packageInstall && forceInstall) {
+if (!argv['skip-commands'] && packageInstall) {
+  shell.echo('----> Adding commands to your project package.json');
+  switch (packageInstall.toLowerCase()) {
+    case 'react-web':
+      require('../src/commands/react-web').injectCommands(path.join(process.cwd(), 'package.json'));
+      break;
+    default:
+      shell.echo('Requires packages list name (--install or -i), valid options: ' + VALID_PACKAGES.join(','));
+      shell.exit(1);
+  }
+}
+
+if (!argv['skip-install'] && packageInstall) {
   switch (packageInstall.toLowerCase()) {
     case 'react-web':
       packages = require('../src/packages/react-web');

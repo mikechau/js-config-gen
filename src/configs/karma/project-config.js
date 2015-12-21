@@ -2,7 +2,7 @@
 
 var tmpl = require('blueimp-tmpl').tmpl;
 var path = require('path');
-var readTemplate = require('../../utils/read-template');
+var readFile = require('../../utils/read-file');
 var projectName = require('project-name');
 var BASE_DIR = path.resolve(__dirname);
 
@@ -14,7 +14,7 @@ function buildProjectKarmaConfig() {
 
 module.exports = function generateProjectKarmaConfig() {
   var source = path.resolve(__dirname, '../../templates/project-karma.js.tmpl');
-  var karmaTemplate = readTemplate(source);
+  var karmaTemplate = readFile(source);
   var karmaConfig = buildProjectKarmaConfig();
   var template = tmpl(karmaTemplate, karmaConfig);
 

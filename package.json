@@ -42,6 +42,7 @@
     "blueimp-tmpl": "^2.5.7",
     "eslint-config-airbnb": "^2.1.1",
     "glob": "^6.0.1",
+    "jsonfile": "^2.2.3",
     "lodash": "^3.10.1",
     "minimist": "^1.2.0",
     "project-name": "^0.2.3",

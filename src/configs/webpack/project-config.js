@@ -2,7 +2,7 @@
 
 var tmpl = require('blueimp-tmpl').tmpl;
 var path = require('path');
-var readTemplate = require('../../utils/read-template');
+var readFile = require('../../utils/read-file');
 var projectName = require('project-name');
 var BASE_DIR = path.resolve(__dirname);
 
@@ -25,7 +25,7 @@ function buildProjectWebpackConfig(options) {
 
 module.exports = function generateProjectWebpackConfig(options) {
   var source = path.resolve(__dirname, '../../templates/project-webpack.js.tmpl');
-  var webpackTemplate = readTemplate(source);
+  var webpackTemplate = readFile(source);
   var webpackConfig = buildProjectWebpackConfig(options);
   var template = tmpl(webpackTemplate, webpackConfig);
 

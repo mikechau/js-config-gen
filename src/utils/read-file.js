@@ -2,6 +2,6 @@
 
 var fs = require('fs');
 
-module.exports = function readTemplate(path) {
+module.exports = function readFile(path) {
   return fs.readFileSync(path, 'utf8');
 };
