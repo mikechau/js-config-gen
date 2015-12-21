@@ -8,7 +8,7 @@ var commands = {
   lint: 'eslint src tests',
   start: 'npm run dev:server',
   reinstall: 'npm run pkg:purge && npm install',
-  purge: 'npm run clean && npm run pkg:purge && npm run shrinkwrap:purge',
+  purge: 'npm run clean && npm run shrinkwrap:purge && npm run pkg:purge',
   mocha: 'mocha  --compilers js:babel-register --timeout 15000 --bail ./tests/**/*.spec.js',
   spec: 'npm run mocha -- --reporter spec',
   karma: 'karma start',
