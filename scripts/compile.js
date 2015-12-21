@@ -31,20 +31,6 @@ var CONFIGS = {
     get: require('../src/configs/eslintrc/development')
   }
 };
-// var WEBPACK_CONFIGS = {
-//   'react-web': {
-//     'base-webpack.config.dev': {
-//       get: require('../src/configs/webpack/react-web').base.development
-//     },
-//     'base-webpack.config.test': {
-//       get: require('../src/configs/webpack/react-web').base.test
-//     },
-//     'base-webpack.config.prod': {
-//       get: require('../src/configs/webpack/react-web').base.production
-//     }
-//   }
-// };
-
 var WEBPACK_GROUPS = ['react-web'];
 
 function generateConfigJson(key, template) {
@@ -76,16 +62,6 @@ Object.keys(CONFIGS).forEach(function(key) {
   shell.echo('----> Generating ' + key + '.js to dist...');
   generateConfigJs(key, config.get.json);
 });
-
-// Object.keys(WEBPACK_CONFIGS).forEach(function(parentKey) {
-//   var parentConfig = WEBPACK_CONFIGS[parentKey];
-
-//   Object.keys(parentConfig).forEach(function(childKey) {
-//     var childConfig = parentConfig[childKey];
-//     shell.echo('----> Generating ' + parentKey + '/' + childKey + '.js to dist/' + parentKey);
-//     generateConfigWebpack(parentKey, childKey, childConfig.get.template);
-//   });
-// });
 
 WEBPACK_GROUPS.forEach(function(group) {
   var config = require('../src/configs/webpack/' + group);
