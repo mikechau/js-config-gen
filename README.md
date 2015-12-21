@@ -17,10 +17,10 @@ as a base and do some heavy customizations or want to see what they are.
   - [ ] Add copy command to copy a file from dist
 
 - Add convienence tasks to project `package.json`
-  - [ ] Webpack commands
-  - [ ] Dev Server
-  - [ ] Test commands
-  - [ ] Shrinkwrapping
+  - [x] Webpack commands
+  - [x] Dev Server
+  - [x] Test commands
+  - [x] Shrinkwrapping
 
 - Misc
   - [x] Static HTML Templates
