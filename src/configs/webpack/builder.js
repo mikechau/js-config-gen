@@ -67,10 +67,6 @@ module.exports = {
       failOnError: (env === 'production')
     };
 
-    if (env === 'development') {
-      config.configFile = '.eslintrc.dev';
-    }
-
     return config;
   }
 };

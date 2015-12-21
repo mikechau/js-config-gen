@@ -135,8 +135,7 @@ test('webpackConfigBuilder.getEslint()', function(assert) {
         emitError: false,
         emitWarning: false,
         failOnWarning: false,
-        failOnError: false,
-        configFile: '.eslintrc.dev'
+        failOnError: false
       }
     },
     {

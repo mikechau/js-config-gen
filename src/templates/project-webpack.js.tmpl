@@ -108,7 +108,11 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 {% if (o.env === 'development'){ %}    new webpack.HotModuleReplacementPlugin(),{% } %}
     new webpack.NoErrorsPlugin()
-  ]
+  ],
+
+  eslint: {
+    configFile: path.resolve(__dirname, '.eslintrc')
+  }
 });{% } %}
 
 module.exports = config;
