@@ -16,12 +16,6 @@ as a base and do some heavy customizations or want to see what they are.
 - Bin command
   - [ ] Add copy command to copy a file from dist
 
-- Add convienence tasks to project `package.json`
-  - [x] Webpack commands
-  - [x] Dev Server
-  - [x] Test commands
-  - [x] Shrinkwrapping
-
 - Misc
   - [x] Static HTML Templates
   - [ ] Write more tests
