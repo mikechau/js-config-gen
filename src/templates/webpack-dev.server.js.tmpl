@@ -13,7 +13,14 @@ app.use(require('webpack-dev-middleware')(compiler, {
     index: './static/dev.index.html'
   },
   stats: {
-    colors: true
+    assets: true,
+    colors: true,
+    version: false,
+    hash: false,
+    timings: true,
+    chunks: false,
+    chunkModules: false,
+    modules: false
   }
 }));
 
