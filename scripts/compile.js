@@ -96,7 +96,7 @@ shell.cp('-f', path.resolve(__dirname, '../src/templates/development-index.html.
 shell.echo('----> Generating prod.index.html to dist/static...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/production-index.html.tmpl'), path.join(BASE_DIR, 'static', 'prod.index.html'));
 
-tmpl('{%# o %}', JSON.stringify(METADATA, null, '  ')).to(path.join(BASE_DIR, '.metadata.txt'));
+tmpl('{%# o %}', JSON.stringify(METADATA, null, '  ')).to(path.join(BASE_DIR, '.metadata.json'));
 
 shell.echo('');
 shell.echo('----> Compilation complete!');
