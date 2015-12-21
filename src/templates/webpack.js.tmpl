@@ -10,10 +10,22 @@ var path = require("path");
 var PROJECT_DIR = process.env.WEBPACK_OUTPUT_PATH || process.cwd();
 
 module.exports = {
+  /**
+   * Sourcemaps
+   * https://webpack.github.io/docs/configuration.html#devtool
+   */
   "devtool": "{%= o.webpack.devtool %}",
 
+  /**
+   * Application entrypoint
+   * https://webpack.github.io/docs/configuration.html#entry
+   */
   "entry": {% if (o.test) { %}{},{% } else { %}{%# JSON.stringify(o.webpack.entry, null, "    ").replace(/}$/g, "  }").replace(/(\s{9})/g, "\n      ") %},{% } %}
 
+  /**
+   * Output configuration (build results)
+   * https://webpack.github.io/docs/configuration.html#output
+   */
   "output": {% if (o.test) { %}{}{% } else { %}{
     "path": path.join(PROJECT_DIR, {%# o.webpack.output.path %}),
     "publicPath": "{%= o.webpack.output.publicPath %}",
@@ -23,8 +35,16 @@ module.exports = {
     "pathInfo": "{%= o.webpack.output.pathInfo %}"
   }{% } %},
 
+  /**
+   * Debug Loaders
+   * https://webpack.github.io/docs/configuration.html#debug
+   */
   "debug": {%= o.webpack.debug %},
 
+  /**
+   * Module resolution configuration
+   * https://webpack.github.io/docs/configuration.html#resolve
+   */
   "resolve": {
     "root": path.join(PROJECT_DIR, "src"),
     "extensions": ["", ".js", ".jsx"],
@@ -33,11 +53,25 @@ module.exports = {
     }
   },
 
+  /**
+   * Loader resolution configuration
+   */
   "resolveLoader": {
     "root": path.join(PROJECT_DIR, "node_modules")
   },
 
+  /**
+   * Module configuration
+  // https://webpack.github.io/docs/configuration.html#module
   "module": {
+    /**
+    *  Preloaders
+    *  https://webpack.github.io/docs/loaders.html#loader-order
+    *
+    *  Eslint Loader: https://github.com/MoOx/eslint-loader
+    *
+    *  These loaders run before everything.
+    */
     "preLoaders": [
       {
         "test": /\.(js|jsx)$/,
@@ -46,6 +80,19 @@ module.exports = {
       }
     ],
 
+    /**
+    * Loaders
+    * https://webpack.github.io/docs/loaders.html
+    *
+    * Babel Loader: https://github.com/babel/babel-loader
+    * Url Loader: https://github.com/webpack/url-loader
+    * File Loader: https://github.com/webpack/file-loader
+    * JSON Loader: https://github.com/webpack/json-loader
+    * HTML Loader: https://github.com/webpack/html-loader
+    * Raw Loader: https://github.com/webpack/raw-loader
+    *
+    * Loaders match for a particular file extension, options to the loader are provided by query param
+    */
     "loaders": [
       {
         "test": /\.(js|jsx)$/,
@@ -94,6 +141,10 @@ module.exports = {
       }
     ],
 
+    /**
+     * Eslint loader configuration
+     * https://github.com/MoOx/eslint-loader
+     */
     "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "      ").replace(/}$/g, "    }") %}{% } else { %}{}{% } %}
   }
 };
