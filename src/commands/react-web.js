@@ -16,7 +16,7 @@ var commands = {
   shrinkwrap: 'npm shrinkwrap --dev',
   config: 'js-config-gen',
   'karma:watch': 'npm run karma -- --autowatch --no-single-run',
-  'build:webpack': 'NODE_ENV=production webpack --config webpack.config.prod.js',
+  'build:webpack': 'NODE_ENV=production webpack --config webpack.config.prod.js --progress --profile --colors',
   'dev:server': 'node ./webpack-dev.server.js',
   'pkg:purge': 'rimraf node_modules',
   'pkg:update': 'ncu',

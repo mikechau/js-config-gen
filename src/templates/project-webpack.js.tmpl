@@ -14,6 +14,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var buildDate = (new Date());
 
 var config = _.merge({}, baseWebpackConfig, {
+  cache: false,
+
   module: {
     loaders: baseWebpackConfig.module.loaders.concat([
       {

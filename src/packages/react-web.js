@@ -38,6 +38,10 @@ var devPackages = {
     'node-zopfli'
   ],
 
+  react: [
+    'redbox-react'
+  ],
+
   server: [
     'express'
   ],
@@ -131,6 +135,7 @@ module.exports = {
     devPackages.webpack,
     devPackages.testing,
     devPackages.utils,
+    devPackages.react,
     devPackages.babelAddons,
     devPackages.eslintPlugins,
     devPackages.webpackLoaders,
