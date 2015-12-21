@@ -91,7 +91,7 @@ if (!argv['skip-install'] && argv.install || !argv['skip-install'] && argv.i) {
 
 if (argv.force || argv.babelrc || !shell.test('-f', '.babelrc')) {
   shell.echo('----> Generating .babelrc...');
-  copyDistConfig('babelrc.json', '.babelrc');
+  copyDistConfig('/json/babelrc.json', '.babelrc');
 }
 
 if (argv.force || argv.eslintrc || !shell.test('-f', '.eslintrc')) {
@@ -110,7 +110,7 @@ if (!argv['skip-tests']) {
   if (argv.force || !shell.test('-f', './tests/.eslintrc')) {
     shell.echo('----> Generating test project .eslintrc...');
     generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
-    copyDistConfig('test-eslintrc.json', './tests/.eslintrc');
+    copyDistConfig('/json/test-eslintrc.json', './tests/.eslintrc');
   }
 }
 
