@@ -69,8 +69,5 @@ WEBPACK_GROUPS.forEach(function(group) {
   ['development', 'test', 'production'].forEach(function(env) {
     shell.echo('----> Generating ' + 'base-webpack.config.' + env + '.js' + ' to dist/' + group);
     generateConfigWebpack(group, 'base-webpack.config.' + env, config.base[env].template);
-
-    shell.echo('----> Generating ' + 'project-webpack.config.' + env + '.js' + ' to dist/' + group);
-    generateConfigWebpack(group, 'project-webpack.config.' + env, config.project[env].template);
   });
 });

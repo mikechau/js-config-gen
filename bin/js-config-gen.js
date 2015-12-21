@@ -114,19 +114,20 @@ if (!argv['skip-tests']) {
   }
 }
 
+
 if (argv.force || webpackGroup) {
   if (argv.force || !shell.test('-f', 'webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');
-    copyDistConfig(webpackGroup + '/project-webpack.config.development.js', 'webpack.config.dev.js');
+    require('../src/configs/webpack/' + webpackGroup).project.development.template.to('webpack.config.dev.js');
   }
 
   if (argv.force || !shell.test('-f', 'webpack.config.test.js')) {
     shell.echo('----> Generating webpack.config.test.js...');
-    copyDistConfig(webpackGroup + '/project-webpack.config.test.js', 'webpack.config.test.js');
+    require('../src/configs/webpack/' + webpackGroup).project.test.template.to('webpack.config.test.js');
   }
 
-  if (argv.force || !shell.test('-f', 'webpack.config.production.js')) {
+  if (argv.force || !shell.test('-f', 'webpack.config.prod.js')) {
     shell.echo('----> Generating webpack.config.production.js...');
-    copyDistConfig(webpackGroup + '/project-webpack.config.production.js', 'webpack.config.prod.js');
+    require('../src/configs/webpack/' + webpackGroup).project.production.template.to('webpack.config.prod.js');
   }
 }
