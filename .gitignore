@@ -8,3 +8,8 @@ examples/*/tests
 examples/*/webpack.config.*
 examples/*/webpack-dev*
 examples/*/static
+examples/*/build/
+examples/*/src/containers/
+examples/*/src/reducers/
+examples/*/src/stores/
+examples/*/src

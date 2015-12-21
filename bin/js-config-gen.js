@@ -10,6 +10,7 @@ var projectName = require('project-name');
 
 var BASE_DIR = path.resolve(__dirname, '..');
 var DIST_DIR = path.join(BASE_DIR, 'dist');
+var SCAFFOLD_DIR = path.join(BASE_DIR, 'scaffolds');
 var TEMPLATES_DIR = path.join(BASE_DIR, 'src', 'templates');
 var VALID_PACKAGES = ['react-web'];
 var DIST_ESLINT_DIR = path.join('node_modules', projectName(BASE_DIR), 'dist');
@@ -42,9 +43,14 @@ function devNpmInstall(pkgs) {
   });
 }
 
-function copyDistConfig(sourceFilename, destFilename) {
-  var sourcePath = path.join(DIST_DIR, sourceFilename);
-  shell.cp('-f', sourcePath, destFilename);
+function copyDistConfig(source, destination) {
+  var sourcePath = path.join(DIST_DIR, source);
+  shell.cp('-f', sourcePath, destination);
+}
+
+function copyScaffold(source, destination) {
+  var sourcePath = path.join(SCAFFOLD_DIR, source);
+  shell.cp('-f', sourcePath, destination);
 }
 
 function buildTemplateFromFile(templatePath, data) {
@@ -71,6 +77,7 @@ if (argv.help) {
   shell.echo('  --webpack-dev-server: create webpack dev server config');
   shell.echo('  --karma: create karma configs');
   shell.echo('  --index-html: creates dev & prod index.html');
+  shell.echo('  --redux: creates scaffold for redux');
   shell.echo('  --skip-install: override to skip installing of packages');
   shell.echo('  --skip-tests: override to skip setup for tests');
   shell.echo('  --skip-commands: override to skip adding of commands');
@@ -186,6 +193,43 @@ if (packageInstall || argv.html) {
   if (forceInstall || !shell.test('-f', './static/prod.index.html')) {
     shell.echo('----> Generating static/prod.index.html...');
     copyDistConfig('static/prod.index.html', 'static/prod.index.html');
+  }
+}
+
+if (packageInstall || argv.redux) {
+  if (forceInstall) {
+    shell.echo('----> Generating redux scaffolds...');
+  }
+
+  if (forceInstall || !shell.test('-f', './src/index.js')) {
+    copyScaffold('redux/index.js', 'src/index.js');
+  }
+
+  if (forceInstall || !shell.test('-d', './src/containers/Root')) {
+    shell.mkdir('-p', 'src/containers/Root');
+    copyScaffold('redux/containers/Root/index.js', 'src/containers/Root/index.js');
+    copyScaffold('redux/containers/Root/_dev.jsx', 'src/containers/Root/_dev.jsx');
+    copyScaffold('redux/containers/Root/_prod.jsx', 'src/containers/Root/_prod.jsx');
+  }
+
+  if (forceInstall || !shell.test('-f', './src/containers/App.jsx')) {
+    copyScaffold('redux/containers/App.jsx', 'src/containers/App.jsx');
+  }
+
+  if (forceInstall || !shell.test('-f', './src/containers/DevTools.jsx')) {
+    copyScaffold('redux/containers/DevTools.jsx', 'src/containers/DevTools.jsx');
+  }
+
+  if (forceInstall || !shell.test('-f', './src/reducers/index.js')) {
+    shell.mkdir('-p', 'src/reducers');
+    copyScaffold('redux/reducers/index.js', './src/reducers/index.js');
+  }
+
+  if (forceInstall || !shell.test('-d', './src/stores/configureStore')) {
+    shell.mkdir('-p', 'src/stores/configureStore');
+    copyScaffold('redux/stores/configureStore/index.js', 'src/stores/configureStore/index.js');
+    copyScaffold('redux/stores/configureStore/_dev.js', 'src/stores/configureStore/_dev.js');
+    copyScaffold('redux/stores/configureStore/_prod.js', 'src/stores/configureStore/_prod.js');
   }
 }
 

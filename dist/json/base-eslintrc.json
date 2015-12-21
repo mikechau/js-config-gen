@@ -422,11 +422,23 @@
       }
     ],
     "no-await-in-loop": 0,
-    "babel/generator-star-spacing": 1,
+    "babel/generator-star-spacing": [
+      1,
+      {
+        "before": true,
+        "after": false
+      }
+    ],
     "babel/new-cap": 1,
-    "babel/object-curly-spacing": 1,
+    "babel/object-curly-spacing": [
+      1,
+      "always"
+    ],
     "babel/object-shorthand": 1,
-    "babel/arrow-parens": 1,
+    "babel/arrow-parens": [
+      1,
+      "always"
+    ],
     "babel/no-await-in-loop": 1
   }
 }

@@ -5,7 +5,7 @@ var _ = require('lodash');
 var commands = {
   build: 'npm run build:webpack',
   clean: 'rimraf build',
-  lint: 'eslint src tests',
+  lint: 'eslint --ext .js --ext .jsx src tests',
   start: 'npm run dev:server',
   reinstall: 'npm run pkg:purge && npm install',
   purge: 'npm run clean && npm run shrinkwrap:purge && npm run pkg:purge',
