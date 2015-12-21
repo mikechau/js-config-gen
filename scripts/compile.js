@@ -49,7 +49,7 @@ function generateConfigWebpack(group, name, template) {
   template.to(destination);
 }
 
-['json', 'react-web/examples', 'examples'].forEach(function(dir) {
+['json', 'react-web/examples', 'examples', 'static'].forEach(function(dir) {
   shell.mkdir('-p', path.join(BASE_DIR, dir));
 });
 
@@ -83,3 +83,9 @@ require('../src/configs/karma/project-config')().template.to(path.join(BASE_DIR,
 
 shell.echo('----> Generating webpack-dev.server.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/webpack-dev.server.js.tmpl'), path.join(BASE_DIR, 'webpack-dev.server.js'));
+
+shell.echo('----> Generating dev.index.html to dist/static...');
+shell.cp('-f', path.resolve(__dirname, '../src/templates/development-index.html.tmpl'), path.join(BASE_DIR, 'static', 'dev.index.html'));
+
+shell.echo('----> Generating prod.index.html to dist/static...');
+shell.cp('-f', path.resolve(__dirname, '../src/templates/production-index.html.tmpl'), path.join(BASE_DIR, 'static', 'prod.index.html'));

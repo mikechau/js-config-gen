@@ -71,6 +71,7 @@ if (argv.help) {
   shell.echo('  --webpack: create webpack configs');
   shell.echo('  --webpack-dev-server: create webpack dev server config');
   shell.echo('  --karma: create karma configs');
+  shell.echo('  --index-html: creates dev & prod index.html');
   shell.exit(0);
 }
 
@@ -119,42 +120,56 @@ if ((argv.install && !argv['skip-tests']) || !argv['skip-tests']) {
   if (argv.force || !shell.test('-f', './tests/.eslintrc')) {
     shell.echo('----> Generating test project .eslintrc...');
     generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
-    copyDistConfig('/json/test-eslintrc.json', './tests/.eslintrc');
+    copyDistConfig('/json/test-eslintrc.json', 'tests/.eslintrc');
   }
 }
 
 if (argv.install || webpackGroup) {
-  if (argv.force || !shell.test('-f', 'webpack.config.dev.js')) {
+  if (argv.force || !shell.test('-f', './webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');
     require('../src/configs/webpack/' + webpackGroup).project.development.template.to('webpack.config.dev.js');
   }
 
-  if (argv.force || !shell.test('-f', 'webpack.config.test.js')) {
+  if (argv.force || !shell.test('-f', './webpack.config.test.js')) {
     shell.echo('----> Generating webpack.config.test.js...');
     require('../src/configs/webpack/' + webpackGroup).project.test.template.to('webpack.config.test.js');
   }
 
-  if (argv.force || !shell.test('-f', 'webpack.config.prod.js')) {
+  if (argv.force || !shell.test('-f', './webpack.config.prod.js')) {
     shell.echo('----> Generating webpack.config.production.js...');
     require('../src/configs/webpack/' + webpackGroup).project.production.template.to('webpack.config.prod.js');
   }
 }
 
 if (argv.install || argv['webpack-dev-server']) {
-  if (argv.force || !shell.test('-f', 'webpack-dev-server.js')) {
+  if (argv.force || !shell.test('-f', './webpack-dev-server.js')) {
     shell.echo('----> Generating webpack-dev.server.js...');
     copyDistConfig('webpack-dev.server.js', 'webpack-dev.server.js');
   }
 }
 
 if (argv.install || argv.karma) {
-  if (argv.force || !shell.test('-f', 'karma.js')) {
+  if (argv.force || !shell.test('-f', './karma.js')) {
     shell.echo('----> Generating project karma.js');
     require('../src/configs/karma/project-config')().template.to('karma.js');
   }
 
-  if (argv.force || !shell.test('-f', 'tests/browser/index.js')) {
+  if (argv.force || !shell.test('-f', './tests/browser/index.js')) {
     shell.echo('----> Generating project tests/browser/index.js');
-    copyDistConfig('karma-test-index.js', './tests/browser/index.js');
+    copyDistConfig('karma-test-index.js', 'tests/browser/index.js');
+  }
+}
+
+if (argv.install || argv.html) {
+  shell.mkdir('-p', 'static');
+
+  if (argv.force || !shell.test('-f', './static/dev.index.html')) {
+    shell.echo('----> Generating static/dev.index.html...');
+    copyDistConfig('/static/dev.index.html', '/static/dev.index.html');
+  }
+
+  if (argv.force || !shell.test('-f', './static/prod.index.html')) {
+    shell.echo('----> Generating static/prod.index.html...');
+    copyDistConfig('/static/prod.index.html', '/static/prod.index.html');
   }
 }
