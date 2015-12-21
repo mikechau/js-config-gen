@@ -18,7 +18,7 @@ function buildProjectWebpackConfig(options) {
     env: params.env
   };
 
-  config.webpackConfigPath = './' + path.join('node_modules', projectName(process.cwd()), 'dist', params.group);
+  config.webpackConfigPath = './' + path.join('node_modules', projectName(process.cwd()), 'dist', params.group, 'project-webpack.config.' + options.env + '.js');
 
   return config;
 }
