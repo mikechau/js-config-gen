@@ -12,6 +12,7 @@ as a base and do some heavy customizations or want to see what they are.
 ## Usage
 
 ```
+npm init # if you haven't already
 npm install https://github.com/mikechau/js-config-gen --save-dev
 
 ./node_modules/.bin/js-config-gen -i react-web
