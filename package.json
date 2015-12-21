@@ -16,13 +16,7 @@
     "example:update-self": "./scripts/example-update-self.js",
     "git:hide": "git update-index --assume-unchanged ./examples/*/package.json",
     "git:unhide": "git update-index --no-assume-unchanged ./examples/*/package.json",
-    "clean": "rm -rf dist && mkdir -p dist",
-    "patch": "npm run check && npm version patch",
-    "minor": "npm run check && npm run compile && npm version minor",
-    "major": "npm run check && npm run compile && npm version major",
-    "dist-upgrade": "npm run major",
-    "update": "npm run minor",
-    "upgrade": "npm run patch"
+    "clean": "rm -rf dist && mkdir -p dist"
   },
   "repository": {
     "type": "git",
