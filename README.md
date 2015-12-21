@@ -23,7 +23,7 @@ as a base and do some heavy customizations or want to see what they are.
   - [ ] Shrinkwrapping
 
 - Misc
-  - [ ] Static HTML Templates
+  - [x] Static HTML Templates
   - [ ] Write more tests
   - [ ] Continuous Integration
 
@@ -37,10 +37,8 @@ as a base and do some heavy customizations or want to see what they are.
 - [ ] PhantomJS support
 
 ### Development
-- [ ] Dev Server
+- [x] Dev Server
 - [ ] Compatibility with Rails
-- [ ] React Router
-- [ ] React Bootstrap
 - [ ] Bootswatch
 - [ ] CSS Modules
 - [ ] Native support
