@@ -14,20 +14,22 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var buildDate = (new Date());
 
 var config = _.merge({}, baseWebpackConfig, {
-  loaders: baseWebpackConfig.loaders.concat([
-    {
-      "test": /\.css$/,
-      "loader": ExtractTextPlugin.extract('style-loader', 'css')
-    },
-    {
-      "test": /\.less$/,
-      "loader": ExtractTextPlugin.extract('style-loader', 'css!less')
-    },
-    {
-      "test": /\.scss$/,
-      "loader": ExtractTextPlugin.extract('style-loader', 'css!sass')
-    },
-  ]),
+  module: {
+    loaders: baseWebpackConfig.module.loaders.concat([
+      {
+        "test": /\.css$/,
+        "loader": ExtractTextPlugin.extract('style-loader', 'css')
+      },
+      {
+        "test": /\.less$/,
+        "loader": ExtractTextPlugin.extract('style-loader', 'css!less')
+      },
+      {
+        "test": /\.scss$/,
+        "loader": ExtractTextPlugin.extract('style-loader', 'css!sass')
+      },
+    ]),
+  }
 
   plugins: [
     new webpack.DefinePlugin({
@@ -81,20 +83,22 @@ var webpack = require('webpack');
 var baseWebpackConfig = require('{%= o.webpackConfigPath %}');
 
 var config = _.merge({}, baseWebpackConfig, {
-  loaders: baseWebpackConfig.concat([
-    {
-      "test": /\.css$/,
-      "loader": "style!css"
-    },
-    {
-      "test": /\.less$/,
-      "loader": "style!css!less"
-    },
-    {
-      "test": /\.scss$/,
-      "loader": "style!css!scss"
-    },
-  ]),
+  module: {
+    loaders: baseWebpackConfig.module.loaders.concat([
+      {
+        "test": /\.css$/,
+        "loader": "style!css"
+      },
+      {
+        "test": /\.less$/,
+        "loader": "style!css!less"
+      },
+      {
+        "test": /\.scss$/,
+        "loader": "style!css!scss"
+      },
+    ]),
+  }
 
   plugins: [
     new webpack.DefinePlugin({
