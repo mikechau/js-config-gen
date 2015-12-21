@@ -11,6 +11,14 @@ as a base and do some heavy customizations or want to see what they are.
 
 ## TODO
 
+### Script
+
+- [ ] Add convienence tasks to `package.json`
+  - [ ] Webpack commands
+  - [ ] Dev Server
+  - [ ] Test commands
+  - [ ] Shrinkwrapping
+
 ### Production
 - [ ] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
 - [ ] Sprockets compatible manifest with webpack
@@ -21,6 +29,7 @@ as a base and do some heavy customizations or want to see what they are.
 - [ ] PhantomJS support
 
 ### Development
+- [ ] Dev Server
 - [ ] Compatibility with Rails
 - [ ] React Router
 - [ ] React Bootstrap
