@@ -26,7 +26,7 @@ function npmInstall(pkgs) {
 
   pkgs.forEach(function(pkg, index) {
     shell.echo('');
-    shell.echo('----> Install Package: ' + pkg + ' (' + index + '/' + total + ')');
+    shell.echo('----> Install Package: ' + pkg + ' (' + (index + 1) + '/' + total + ')');
     shell.exec('npm install --save ' + pkg);
   });
 }
@@ -36,7 +36,7 @@ function devNpmInstall(pkgs) {
 
   pkgs.forEach(function(pkg, index) {
     shell.echo('');
-    shell.echo('----> Install Dev Package: ' + pkg + ' (' + index + '/' + total + ')');
+    shell.echo('----> Install Dev Package: ' + pkg + ' (' + (index + 1) + '/' + total + ')');
     shell.exec('npm install --save-dev ' + pkg);
   });
 }
