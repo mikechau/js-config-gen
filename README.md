@@ -65,8 +65,7 @@ Args:
 - Misc
   - [x] Static HTML Templates
   - [x] Redux scaffolding
-  -
- [ ] Write more tests
+  - [ ] Write more tests
   - [ ] Continuous Integration
 
 ### Production
