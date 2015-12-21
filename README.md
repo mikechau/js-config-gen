@@ -52,13 +52,19 @@ Args:
   - PurifyCSS
   - Karma / Mocha for browser/unit testing, MJ's Expect for Assertions
 
-## ISSUES
+## Extending
+
+While there is code generation involved, most of the generated configs are contained in the `dist` folder. You can require a module from `dist` and then merge over it to override any particular settings you want.
+
+Alternatively, you could just copy a file and use it as a starting point for your project configurations.
+
+## Issues
 
 - `npm test` triggers: `Error: cannot resolve path (or pattern) './tests/**/*.spec.js'`.
 
   The solution here is to add a mocha test, it is set to look for tests that end in `*.spec.js`, since no tests are generated it fails because it cannot find any tests.
 
-## TODO
+## Todo
 
 ### Script
 
