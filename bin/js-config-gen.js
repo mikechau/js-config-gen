@@ -114,7 +114,6 @@ if (!argv['skip-tests']) {
   }
 }
 
-
 if (argv.force || webpackGroup) {
   if (argv.force || !shell.test('-f', 'webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');

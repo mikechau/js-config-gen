@@ -4,7 +4,7 @@ var tmpl = require('blueimp-tmpl').tmpl;
 var path = require('path');
 var readTemplate = require('../../utils/read-template');
 var projectName = require('project-name');
-
+var BASE_DIR = path.resolve(__dirname);
 
 function buildProjectWebpackConfig(options) {
   var params = options || {};
@@ -18,7 +18,7 @@ function buildProjectWebpackConfig(options) {
     env: params.env
   };
 
-  config.webpackConfigPath = './' + path.join('node_modules', projectName(process.cwd()), 'dist', params.group, 'base-webpack.config.' + params.env + '.js');
+  config.webpackConfigPath = './' + path.join('node_modules', projectName(BASE_DIR), 'dist', params.group, 'base-webpack.config.' + params.env + '.js');
 
   return config;
 }
