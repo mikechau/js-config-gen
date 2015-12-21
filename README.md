@@ -79,7 +79,7 @@ Alternatively, you could just copy a file and use it as a starting point for you
 
 ### Production
 - [x] PurifyCSS
-- [ ] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
+- [x] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
 - [ ] Sprockets compatible manifest with webpack
 
 ### Testing

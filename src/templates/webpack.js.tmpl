@@ -11,18 +11,21 @@ var PROJECT_DIR = process.env.WEBPACK_OUTPUT_PATH || process.cwd();
 module.exports = {
   /**
    * Sourcemaps
+   *
    * https://webpack.github.io/docs/configuration.html#devtool
    */
   "devtool": "{%= o.webpack.devtool %}",
 
   /**
    * Application entrypoint
+   *
    * https://webpack.github.io/docs/configuration.html#entry
    */
   "entry": {% if (o.test) { %}{},{% } else { %}{%# JSON.stringify(o.webpack.entry, null, "    ").replace(/}$/g, "  }").replace(/(\s{9})/g, "\n      ") %},{% } %}
 
   /**
    * Output configuration (build results)
+   *
    * https://webpack.github.io/docs/configuration.html#output
    */
   "output": {% if (o.test) { %}{}{% } else { %}{
@@ -36,12 +39,14 @@ module.exports = {
 
   /**
    * Debug Loaders
+   *
    * https://webpack.github.io/docs/configuration.html#debug
    */
   "debug": {%= o.webpack.debug %},
 
   /**
    * Module resolution configuration
+   *
    * https://webpack.github.io/docs/configuration.html#resolve
    */
   "resolve": {
@@ -61,7 +66,9 @@ module.exports = {
 
   /**
    * Module configuration
-  // https://webpack.github.io/docs/configuration.html#module
+   *
+   *  https://webpack.github.io/docs/configuration.html#module
+   */
   "module": {
     /**
     *  Preloaders
@@ -139,11 +146,10 @@ module.exports = {
         "loader": "raw"
       }
     ],
-
-    /**
-     * Eslint loader configuration
-     * https://github.com/MoOx/eslint-loader
-     */
-    "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "      ").replace(/}$/g, "    }") %}{% } else { %}{}{% } %}
-  }
+  },
+  /**
+   * Eslint loader configuration
+   * https://github.com/MoOx/eslint-loader
+   */
+  "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "      ").replace(/}$/g, "    }") %}{% } else { %}{}{% } %}
 };

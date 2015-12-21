@@ -11,30 +11,35 @@ var PROJECT_DIR = process.env.WEBPACK_OUTPUT_PATH || process.cwd();
 module.exports = {
   /**
    * Sourcemaps
+   *
    * https://webpack.github.io/docs/configuration.html#devtool
    */
   "devtool": "inline-source-map",
 
   /**
    * Application entrypoint
+   *
    * https://webpack.github.io/docs/configuration.html#entry
    */
   "entry": {},
 
   /**
    * Output configuration (build results)
+   *
    * https://webpack.github.io/docs/configuration.html#output
    */
   "output": {},
 
   /**
    * Debug Loaders
+   *
    * https://webpack.github.io/docs/configuration.html#debug
    */
   "debug": true,
 
   /**
    * Module resolution configuration
+   *
    * https://webpack.github.io/docs/configuration.html#resolve
    */
   "resolve": {
@@ -54,7 +59,9 @@ module.exports = {
 
   /**
    * Module configuration
-  // https://webpack.github.io/docs/configuration.html#module
+   *
+   *  https://webpack.github.io/docs/configuration.html#module
+   */
   "module": {
     /**
     *  Preloaders
@@ -132,16 +139,15 @@ module.exports = {
         "loader": "raw"
       }
     ],
-
-    /**
-     * Eslint loader configuration
-     * https://github.com/MoOx/eslint-loader
-     */
-    "eslint": {
+  },
+  /**
+   * Eslint loader configuration
+   * https://github.com/MoOx/eslint-loader
+   */
+  "eslint": {
       "emitError": false,
       "emitWarning": true,
       "failOnWarning": false,
       "failOnError": false
     }
-  }
 };

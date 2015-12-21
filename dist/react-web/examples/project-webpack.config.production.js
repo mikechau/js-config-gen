@@ -10,6 +10,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var PurifyCSSPlugin = require('bird3-purifycss-webpack-plugin');
+var zopfli = require('node-zopfli');
+var CompressionPlugin = require('compression-webpack-plugin');
 
 var buildDate = (new Date());
 
@@ -164,6 +166,28 @@ var config = _.merge({}, baseWebpackConfig, {
         'src/**/*.jsx',
         'src/**/*.js'
       ]
+    }),
+
+    /**
+     * Compression Plugin
+     *
+     * https://github.com/webpack/compression-webpack-plugin
+     *
+     * Gzip assets
+     */
+    new CompressionPlugin({
+      asset: "{file}.gz",
+      regexp: /\.js$|\.css$/,
+      algorithm: function(content, fn) {
+        zopfli.gzip(content, {
+          verbose: false,
+          verbose_more: false,
+          numiterations: 15,
+          blocksplitting: true,
+          blocksplittinglast: false,
+          blocksplittingmax: 15
+        }, fn);
+      }
     }),
 
     /**
