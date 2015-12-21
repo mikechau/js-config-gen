@@ -28,6 +28,7 @@ as a base and do some heavy customizations or want to see what they are.
   - [ ] Continuous Integration
 
 ### Production
+- [x] PurifyCSS
 - [ ] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
 - [ ] Sprockets compatible manifest with webpack
 
