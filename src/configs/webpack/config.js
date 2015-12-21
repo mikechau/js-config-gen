@@ -1,5 +1,3 @@
-/* eslint quotes: 0, indent: 0 */
-
 'use strict';
 
 var tmpl = require('blueimp-tmpl').tmpl;
@@ -31,14 +29,6 @@ function buildWebpackConfig(options) {
         pathInfo: builder.output.getPathInfo(params.env)
       },
       debug: builder.getDebug(params.env),
-      module: {
-        loaders: {
-          javascript: params.javascriptLoader || 'babel',
-          css: params.cssLoader || 'style!css',
-          less: params.lessLoader || 'style!css!less',
-          scss: params.scssLoader || 'style!css!sass'
-        }
-      },
       eslint: builder.getEslint(params.env)
     }
   };
