@@ -33,6 +33,12 @@ var CONFIGS = {
 };
 var WEBPACK_GROUPS = ['react-web'];
 
+var DATE = new Date();
+var METADATA = {
+  compiledAt: DATE,
+  compiledAtFormatted: DATE.toString()
+};
+
 function generateConfigJson(key, template) {
   var destination = path.join(BASE_DIR, 'json', (key + '.json'));
   template.to(destination);
@@ -89,3 +95,9 @@ shell.cp('-f', path.resolve(__dirname, '../src/templates/development-index.html.
 
 shell.echo('----> Generating prod.index.html to dist/static...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/production-index.html.tmpl'), path.join(BASE_DIR, 'static', 'prod.index.html'));
+
+tmpl('{%# o %}', JSON.stringify(METADATA, null, '  ')).to(path.join(BASE_DIR, '.metadata.txt'));
+
+shell.echo('');
+shell.echo('----> Compilation complete!');
+shell.exit(0);
