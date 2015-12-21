@@ -7,3 +7,4 @@ examples/*/.eslintrc.*
 examples/*/tests
 examples/*/webpack.config.*
 examples/*/webpack-dev*
+examples/*/static

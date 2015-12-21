@@ -18,8 +18,9 @@ var DEV_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'json', 'dev-eslintrc.js
 var TEST_ESLINT_PATH = './' + path.join(DIST_ESLINT_DIR, 'json', 'test-eslintrc.json');
 
 var packages = [];
-var packagesList = argv.install || argv.i || '';
-var webpackGroup = argv.webpack || packagesList || '';
+var packageInstall = argv.install || argv.i || '';
+var webpackGroup = argv.webpack || packageInstall || '';
+var forceInstall = argv.force || argv.f;
 
 function npmInstall(pkgs) {
   var total = pkgs.length;
@@ -75,8 +76,8 @@ if (argv.help) {
   shell.exit(0);
 }
 
-if (!argv['skip-install'] && argv.install || !argv['skip-install'] && argv.i) {
-  switch (packagesList.toLowerCase()) {
+if (!argv['skip-install'] && packageInstall || !argv['skip-install'] && packageInstall && forceInstall) {
+  switch (packageInstall.toLowerCase()) {
     case 'react-web':
       packages = require('../src/packages/react-web');
       break;
@@ -93,83 +94,91 @@ if (!argv['skip-install'] && argv.install || !argv['skip-install'] && argv.i) {
 }
 
 if (
-  ((argv.install || argv.babelrc) && argv.force) ||
-  ((argv.install || argv.babelrc) && !shell.test('-f', '.babelrc'))
+  ((packageInstall || argv.babelrc) && forceInstall) ||
+  ((packageInstall || argv.babelrc) && !shell.test('-f', '.babelrc'))
 ) {
   shell.echo('----> Generating .babelrc...');
   copyDistConfig('/json/babelrc.json', '.babelrc');
 }
 
-if (argv.install || argv.eslintrc) {
+if (packageInstall || argv.eslintrc) {
   if (argv.force || !shell.test('-f', '.eslintrc')) {
     shell.echo('----> Generating project .eslintrc...');
     generateTemplate('project-eslintrc.json.tmpl', BASE_ESLINT_PATH, '.eslintrc');
   }
 
-  if (argv.force || !shell.test('-f', '.eslintrc.dev')) {
+  if (forceInstall || !shell.test('-f', '.eslintrc.dev')) {
     shell.echo('----> Generating development project .eslintrc.dev');
     generateTemplate('project-eslintrc.json.tmpl', DEV_ESLINT_PATH, '.eslintrc.dev');
   }
 }
 
-if ((argv.install && !argv['skip-tests']) || !argv['skip-tests']) {
-  shell.echo('----> Setting up test dirs...');
-  shell.mkdir('-p', 'tests/browser');
-  shell.mkdir('-p', 'tests/unit');
+if ((packageInstall && !argv['skip-tests']) || !argv['skip-tests']) {
+  if (
+    (forceInstall && !shell.test('-d', 'tests/browser')) ||
+    (forceInstall && !shell.test('-d', 'tests/unit'))
+  ) {
+    shell.echo('----> Setting up test dirs...');
+    shell.mkdir('-p', 'tests/browser');
+    shell.mkdir('-p', 'tests/unit');
+  }
 
-  if (argv.force || !shell.test('-f', './tests/.eslintrc')) {
+  if (forceInstall || !shell.test('-f', './tests/.eslintrc')) {
     shell.echo('----> Generating test project .eslintrc...');
     generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
     copyDistConfig('/json/test-eslintrc.json', 'tests/.eslintrc');
   }
 }
 
-if (argv.install || webpackGroup) {
-  if (argv.force || !shell.test('-f', './webpack.config.dev.js')) {
+if (packageInstall || webpackGroup) {
+  if (forceInstall || !shell.test('-f', './webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');
     require('../src/configs/webpack/' + webpackGroup).project.development.template.to('webpack.config.dev.js');
   }
 
-  if (argv.force || !shell.test('-f', './webpack.config.test.js')) {
+  if (forceInstall || !shell.test('-f', './webpack.config.test.js')) {
     shell.echo('----> Generating webpack.config.test.js...');
     require('../src/configs/webpack/' + webpackGroup).project.test.template.to('webpack.config.test.js');
   }
 
-  if (argv.force || !shell.test('-f', './webpack.config.prod.js')) {
+  if (forceInstall || !shell.test('-f', './webpack.config.prod.js')) {
     shell.echo('----> Generating webpack.config.production.js...');
     require('../src/configs/webpack/' + webpackGroup).project.production.template.to('webpack.config.prod.js');
   }
 }
 
-if (argv.install || argv['webpack-dev-server']) {
-  if (argv.force || !shell.test('-f', './webpack-dev-server.js')) {
+if (packageInstall || argv['webpack-dev-server']) {
+  if (forceInstall || !shell.test('-f', './webpack-dev.server.js')) {
     shell.echo('----> Generating webpack-dev.server.js...');
     copyDistConfig('webpack-dev.server.js', 'webpack-dev.server.js');
   }
 }
 
-if (argv.install || argv.karma) {
-  if (argv.force || !shell.test('-f', './karma.js')) {
+if (packageInstall || argv.karma) {
+  if (forceInstall || !shell.test('-f', './karma.js')) {
     shell.echo('----> Generating project karma.js');
     require('../src/configs/karma/project-config')().template.to('karma.js');
   }
 
-  if (argv.force || !shell.test('-f', './tests/browser/index.js')) {
+  if (forceInstall || !shell.test('-f', './tests/browser/index.js')) {
     shell.echo('----> Generating project tests/browser/index.js');
     copyDistConfig('karma-test-index.js', 'tests/browser/index.js');
   }
 }
 
-if (argv.install || argv.html) {
+if (packageInstall || argv.html) {
   shell.mkdir('-p', 'static');
 
-  if (argv.force || !shell.test('-f', './static/dev.index.html')) {
+  if (forceInstall || !shell.test('-f', './static/dev.index.html')) {
     shell.echo('----> Generating static/dev.index.html...');
-    copyDistConfig('/static/dev.index.html', '/static/dev.index.html');
+    copyDistConfig('static/dev.index.html', 'static/dev.index.html');
   }
 
-  if (argv.force || !shell.test('-f', './static/prod.index.html')) {
+  if (forceInstall || !shell.test('-f', './static/prod.index.html')) {
     shell.echo('----> Generating static/prod.index.html...');
-    copyDistConfig('/static/prod.index.html', '/static/prod.index.html');
+    copyDistConfig('static/prod.index.html', 'static/prod.index.html');
   }
 }
+
+shell.echo('----> Done!');
+shell.exit(0);
