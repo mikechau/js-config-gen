@@ -10,7 +10,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath,
   historyApiFallback: {
-    index: './static/dev/index.html'
+    index: './static/dev.index.html'
   },
   stats: {
     colors: true
