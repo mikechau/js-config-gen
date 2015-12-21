@@ -13,7 +13,10 @@ as a base and do some heavy customizations or want to see what they are.
 
 ### Script
 
-- Add convienence tasks to `package.json`
+- Bin command
+  - [ ] Add copy command to copy a file from dist
+
+- Add convienence tasks to project `package.json`
   - [ ] Webpack commands
   - [ ] Dev Server
   - [ ] Test commands
