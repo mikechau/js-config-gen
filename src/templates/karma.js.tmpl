@@ -13,11 +13,11 @@ module.exports = function karmaConfig(config) {
     ],
 
     files: [
-      'tests/browser/index.js'
+      'tests/karma_tests.js'
     ],
 
     preprocessors: {
-      'tests/browser/index.js': ['webpack', 'sourcemap']
+      'tests/karma_tests.js': ['webpack', 'sourcemap']
     },
 
     browsers: [

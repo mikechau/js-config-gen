@@ -54,7 +54,8 @@ var devPackages = {
     'expect',
     'expect-jsx',
     'react-addons-test-utils',
-    'enzyme'
+    'enzyme',
+    'report-viewer'
   ],
 
   utils: [

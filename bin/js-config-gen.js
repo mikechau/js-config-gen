@@ -114,13 +114,9 @@ if (packageInstall || argv.eslintrc) {
 }
 
 if ((packageInstall && !argv['skip-tests']) || !argv['skip-tests']) {
-  if (
-    (forceInstall && !shell.test('-d', 'tests/browser')) ||
-    (forceInstall && !shell.test('-d', 'tests/unit'))
-  ) {
-    shell.echo('----> Setting up test dirs...');
-    shell.mkdir('-p', 'tests/browser');
-    shell.mkdir('-p', 'tests/unit');
+  if (forceInstall && !shell.test('-d', 'tests')) {
+    shell.echo('----> Setting up test dir...');
+    shell.mkdir('-p', 'tests');
   }
 
   if (forceInstall || !shell.test('-f', './tests/.eslintrc')) {
@@ -160,9 +156,9 @@ if (packageInstall || argv.karma) {
     require('../src/configs/karma/project-config')().template.to('karma.js');
   }
 
-  if (forceInstall || !shell.test('-f', './tests/browser/index.js')) {
-    shell.echo('----> Generating project tests/browser/index.js');
-    copyDistConfig('karma-test-index.js', 'tests/browser/index.js');
+  if (forceInstall || !shell.test('-f', './tests/karma_tests.js')) {
+    shell.echo('----> Generating project tests/karma_tests.js');
+    copyDistConfig('karma-test-index.js', 'tests/karma_tests.js');
   }
 }
 
