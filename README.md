@@ -13,12 +13,16 @@ as a base and do some heavy customizations or want to see what they are.
 
 ### Script
 
-- [ ] Add convienence tasks to `package.json`
-  - [ ] Static page templates
+- Add convienence tasks to `package.json`
   - [ ] Webpack commands
   - [ ] Dev Server
   - [ ] Test commands
   - [ ] Shrinkwrapping
+
+- Misc
+  - [ ] Static HTML Templates
+  - [ ] Write more tests
+  - [ ] Continuous Integration
 
 ### Production
 - [ ] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
