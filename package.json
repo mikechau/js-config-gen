@@ -1,6 +1,6 @@
 {
   "name": "@mikechau/js-config-gen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "@mikechau's default configs for javascript projects.",
   "main": "src/index.js",
   "bin": {
