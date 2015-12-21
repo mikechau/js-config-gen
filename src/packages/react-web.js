@@ -10,7 +10,7 @@ var devPackages = {
 
   babelAddons: [
     'babel-eslint',
-    'babel-plugin-react-transform',
+    'babel-plugin-react-transform@beta',
     'babel-plugin-transform-runtime',
     'babel-preset-es2015',
     'babel-preset-react',
