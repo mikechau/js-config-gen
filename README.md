@@ -18,6 +18,7 @@ as a base and do some heavy customizations or want to see what they are.
 
 - Misc
   - [x] Static HTML Templates
+  - [ ] Redux scaffolding
   - [ ] Write more tests
   - [ ] Continuous Integration
 
