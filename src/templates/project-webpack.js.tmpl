@@ -28,8 +28,8 @@ var config = _.merge({}, baseWebpackConfig, {
         "test": /\.scss$/,
         "loader": ExtractTextPlugin.extract('style-loader', 'css!sass')
       },
-    ]),
-  }
+    ])
+  },
 
   plugins: [
     new webpack.DefinePlugin({
@@ -97,8 +97,8 @@ var config = _.merge({}, baseWebpackConfig, {
         "test": /\.scss$/,
         "loader": "style!css!scss"
       },
-    ]),
-  }
+    ])
+  },
 
   plugins: [
     new webpack.DefinePlugin({
