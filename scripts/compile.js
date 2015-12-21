@@ -73,13 +73,13 @@ WEBPACK_GROUPS.forEach(function(group) {
   });
 });
 
-shell.echo('----> Generating karma.js to dist...');
-shell.cp('-f', path.resolve(__dirname, '../src/templates/karma.js.tmpl'), path.join(BASE_DIR, 'karma.js'));
+shell.echo('----> Generating karma.conf.js to dist...');
+shell.cp('-f', path.resolve(__dirname, '../src/templates/karma.conf.js.tmpl'), path.join(BASE_DIR, 'karma.conf.js'));
 
 shell.echo('----> Generating karma-test-index.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/karma-test-index.js.tmpl'), path.join(BASE_DIR, 'karma-test-index.js'));
 
-require('../src/configs/karma/project-config')().template.to(path.join(BASE_DIR, 'examples', 'project-karma.js'));
+require('../src/configs/karma/project-config')().template.to(path.join(BASE_DIR, 'examples', 'project-karma.conf.js'));
 
 shell.echo('----> Generating webpack-dev.server.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/webpack-dev.server.js.tmpl'), path.join(BASE_DIR, 'webpack-dev.server.js'));

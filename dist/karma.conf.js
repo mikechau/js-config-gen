@@ -1,6 +1,7 @@
 'use strict';
 
-var webpackConfig = require('./webpack.config.test');
+var path = require('path');
+var webpackConfig = require(path.join(process.cwd(), 'webpack.config.test'));
 
 module.exports = function karmaConfig(config) {
   config.set({
@@ -35,5 +36,5 @@ module.exports = function karmaConfig(config) {
     colors: true,
     captureTimeout: 60000,
     browserNoActivityTimeout: 45000
-  })
-}
+  });
+};

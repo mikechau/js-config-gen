@@ -65,7 +65,7 @@ function generateTemplate(templatePath, data, destination) {
 
 if (argv.help) {
   shell.echo('Usage:');
-  shell.echo('  react-boilerplate-gen <args>');
+  shell.echo('  js-config-gen <args>');
   shell.echo('');
   shell.echo('Args:');
   shell.echo('');
@@ -171,9 +171,9 @@ if (packageInstall || argv['webpack-dev-server']) {
 }
 
 if (packageInstall || argv.karma) {
-  if (forceInstall || !shell.test('-f', './karma.js')) {
-    shell.echo('----> Generating project karma.js');
-    require('../src/configs/karma/project-config')().template.to('karma.js');
+  if (forceInstall || !shell.test('-f', './karma.conf.js')) {
+    shell.echo('----> Generating project karma.conf.js');
+    require('../src/configs/karma/project-config')().template.to('karma.conf.js');
   }
 
   if (forceInstall || !shell.test('-f', './tests/karma_tests.js')) {

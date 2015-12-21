@@ -12,4 +12,5 @@ examples/*/build/
 examples/*/src/containers/
 examples/*/src/reducers/
 examples/*/src/stores/
-examples/*/src
+examples/*/src/
+examples/*/karma*

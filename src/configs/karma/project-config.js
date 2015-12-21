@@ -8,12 +8,12 @@ var BASE_DIR = path.resolve(__dirname);
 
 function buildProjectKarmaConfig() {
   return {
-    baseKarmaPath: './' + path.join('node_modules', projectName(BASE_DIR), 'dist', 'karma')
+    baseKarmaPath: './' + path.join('node_modules', projectName(BASE_DIR), 'dist', 'karma.conf')
   };
 }
 
 module.exports = function generateProjectKarmaConfig() {
-  var source = path.resolve(__dirname, '../../templates/project-karma.js.tmpl');
+  var source = path.resolve(__dirname, '../../templates/project-karma.conf.js.tmpl');
   var karmaTemplate = readFile(source);
   var karmaConfig = buildProjectKarmaConfig();
   var template = tmpl(karmaTemplate, karmaConfig);

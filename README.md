@@ -9,6 +9,46 @@ serves as a way to shared configurations between projects I work on.
 Generated static configs are available in `dist`, if you prefer to use a config
 as a base and do some heavy customizations or want to see what they are.
 
+## Usage
+
+```
+npm install https://github.com/mikechau/js-config-gen --save-dev
+
+./node_modules/.bin/js-config-gen -i react-web
+```
+
+```
+Usage:
+  js-config-gen <args>
+
+Args:
+
+  --install, -i: install predefined package list, options: [react-web]
+  --force, -f: overwrite existing configs, does not override --skip-install or --skip-commands
+  --eslintrc: create eslintrc
+  --babelrc: create babelrc
+  --webpack: create webpack configs
+  --webpack-dev-server: create webpack dev server config
+  --karma: create karma configs
+  --index-html: creates dev & prod index.html
+  --redux: creates scaffold for redux
+  --skip-install: override to skip installing of packages
+  --skip-tests: override to skip setup for tests
+  --skip-commands: override to skip adding of commands
+```
+
+## Package Groups
+
+- React Web: Standalone setup for a client side SPA for the web
+  - Redux
+  - Fetch
+  - Webpack dev/test/prod configs
+  - Eslint dev/test/prod configs (based on Airbnb style)
+  - ES6
+  - Babel w/ hot transforming, redbox-errors
+  - PurifyCSS
+  - Karma / Mocha for browser/unit testing, MJ's Expect for Assertions
+
 ## TODO
 
 ### Script
@@ -19,7 +59,8 @@ as a base and do some heavy customizations or want to see what they are.
 - Misc
   - [x] Static HTML Templates
   - [x] Redux scaffolding
-  - [ ] Write more tests
+  -
+ [ ] Write more tests
   - [ ] Continuous Integration
 
 ### Production
@@ -39,3 +80,4 @@ as a base and do some heavy customizations or want to see what they are.
 - [ ] CSS Modules
 - [ ] Native support
 - [ ] Server support
+

@@ -5,7 +5,8 @@ var _ = require('lodash');
 var devPackages = {
   babel: [
     'babel-core',
-    'babel-runtime'
+    'babel-runtime',
+    'babel-register'
   ],
 
   babelAddons: [
@@ -49,6 +50,8 @@ var devPackages = {
   testing: [
     'mocha',
     'karma',
+    'karma-cli',
+    'karma-mocha',
     'karma-chrome-launcher',
     'karma-firefox-launcher',
     'karma-webpack',
