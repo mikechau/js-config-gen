@@ -67,19 +67,19 @@ WEBPACK_GROUPS.forEach(function(group) {
   var config = require('../src/configs/webpack/' + group);
 
   ['development', 'test', 'production'].forEach(function(env) {
-    shell.echo('----> Generating ' + 'base-webpack.config.' + env + '.js' + ' to dist/' + group);
+    shell.echo('----> Generating ' + 'base-webpack.config.' + env + '.js' + ' to dist/' + group + '...');
     generateConfigWebpack(group, 'base-webpack.config.' + env, config.base[env].template);
     generateConfigWebpack(group, '/examples/project-webpack.config.' + env, config.project[env].template);
   });
 });
 
-shell.echo('----> Generating karma.js to dist');
+shell.echo('----> Generating karma.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/karma.js.tmpl'), path.join(BASE_DIR, 'karma.js'));
 
-shell.echo('----> Generating karma-test-index.js to dist');
+shell.echo('----> Generating karma-test-index.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/karma-test-index.js.tmpl'), path.join(BASE_DIR, 'karma-test-index.js'));
 
 require('../src/configs/karma/project-config')().template.to(path.join(BASE_DIR, 'examples', 'project-karma.js'));
 
-shell.echo('----> Generating webpack-dev.server.js to dist');
+shell.echo('----> Generating webpack-dev.server.js to dist...');
 shell.cp('-f', path.resolve(__dirname, '../src/templates/webpack-dev.server.js.tmpl'), path.join(BASE_DIR, 'webpack-dev.server.js'));
