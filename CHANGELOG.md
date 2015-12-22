@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.5
+
+- Update generated project webpack config` plugins order. Moved `SriPlugin` higher.
+
 ## v5.0.4
 
 - Add eslint rule to project `karma-test-index.js`.
