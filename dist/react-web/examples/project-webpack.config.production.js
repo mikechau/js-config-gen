@@ -22,6 +22,7 @@ var config = _.merge({}, baseWebpackConfig, {
    * Build caching, disable for Production
    *
    * https://webpack.github.io/docs/configuration.html#cache
+   *
    */
   cache: false,
 
@@ -42,6 +43,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * Production builds use ExtractTextPlugin to create stylesheets
      *
      * https://github.com/webpack/extract-text-webpack-plugin
+     *
      */
     loaders: baseWebpackConfig.module.loaders.concat([
       {
@@ -61,9 +63,11 @@ var config = _.merge({}, baseWebpackConfig, {
 
   /**
    * Plugins
+   *
    * https://webpack.github.io/docs/configuration.html#plugins
    * https://webpack.github.io/docs/using-plugins.html
    * https://webpack.github.io/docs/list-of-plugins.html
+   *
    */
   plugins: [
     /**
@@ -75,6 +79,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * mode
      *
      * https://facebook.github.io/react/downloads.html#npm
+     *
      */
     new webpack.DefinePlugin({
       'process.env': {
@@ -88,6 +93,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
      *
      * No assets are emitted when there are build errors.
+     *
      */
     new webpack.NoErrorsPlugin(),
 
@@ -97,6 +103,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/johnagan/clean-webpack-plugin
      *
      * Remove folders before building.
+     *
      */
     new CleanPlugin(['build']),
 
@@ -106,6 +113,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
      *
      * Search for equal or similar files and deduplicate them in the output.
+     *
      */
     new webpack.optimize.DedupePlugin(),
 
@@ -115,6 +123,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      *
      * Javascript minifier / dead code elimination.
+     *
      */
     new webpack.optimize.UglifyJsPlugin({
       output: {
@@ -132,6 +141,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      * Order the modules and chunks by occurrence. This saves space, because
      * often referenced modules and chunks get smaller ids.
+     *
      */
     new webpack.optimize.OccurenceOrderPlugin(),
 
@@ -141,6 +151,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
      *
      * Utilizes a more aggressive merging strategy to reduce build filesize.
+     *
      */
     new webpack.optimize.AggressiveMergingPlugin(),
 
@@ -150,6 +161,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/webpack/extract-text-webpack-plugin
      *
      * Generates stylesheets required from your modules.
+     *
      */
     new ExtractTextPlugin('[name]-[hash].css'),
 
@@ -161,6 +173,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      * CSS dead code elimination! Provide paths to search and it will remove
      * any unused rules from the stylesheets.
+     *
      */
     new PurifyCSSPlugin({
       purifyOptions: { info: true },
@@ -176,6 +189,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/mikechau/sri-webpack-plugin
      *
      * Generate subresource integrity hashes.
+     *
      */
     new SriPlugin(),
 
@@ -186,6 +200,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      * Generates HTML. We use this to create a index.html at build time, with
      * the fingerprinted asset paths.
+     *
      */
     new HtmlWebpackPlugin({
       title: 'My React Application',
@@ -209,6 +224,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/webpack/compression-webpack-plugin
      *
      * Gzip assets
+     *
      */
     new CompressionPlugin({
       asset: '{file}.gz',
@@ -231,6 +247,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/FormidableLabs/webpack-stats-plugin
      *
      * Ouputs webpack stats into a file.
+     *
      */
     new StatsWriterPlugin({
       filename: '../stats.json',
@@ -243,6 +260,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://github.com/nickjj/manifest-revision-webpack-plugin
      *
      * Create asset manifests.
+     *
      */
     new ManifestRevisionPlugin(path.resolve(__dirname, 'build/sprockets-manifest.json'), {
       rootAssetPath: './src/assets',

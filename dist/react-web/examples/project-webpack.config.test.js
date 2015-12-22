@@ -22,6 +22,7 @@ var config = _.merge({}, baseWebpackConfig, {
    *
    * Development/Test builds do not need the ExtractTextPlugin.
    * Leaves styles inline.
+   *
    */
   module: {
     loaders: baseWebpackConfig.module.loaders.concat([
@@ -50,6 +51,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * mode
      *
      * https://facebook.github.io/react/downloads.html#npm
+     *
      */
     new webpack.DefinePlugin({
       'process.env': {
@@ -63,6 +65,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
      *
      * No assets are emitted when there are build errors.
+     *
      */
     new webpack.NoErrorsPlugin()
   ]

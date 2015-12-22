@@ -22,6 +22,7 @@ var config = _.merge({}, baseWebpackConfig, {
    *
    * Development/Test builds do not need the ExtractTextPlugin.
    * Leaves styles inline.
+   *
    */
   module: {
     loaders: baseWebpackConfig.module.loaders.concat([
@@ -47,6 +48,7 @@ var config = _.merge({}, baseWebpackConfig, {
    *
    *  We provide it a development specific eslint, where errors have been set to
    *  warnings.
+   *
    */
   eslint: {
     configFile: path.resolve(__dirname, '.eslintrc.dev')
@@ -62,6 +64,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * mode
      *
      * https://facebook.github.io/react/downloads.html#npm
+     *
      */
     new webpack.DefinePlugin({
       'process.env': {
@@ -77,6 +80,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#hotmodulereplacementplugin
      *
      * Hot reloading! It's the new hotness!
+     *
      */
     new webpack.HotModuleReplacementPlugin(),
 
@@ -86,6 +90,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * https://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
      *
      * No assets are emitted when there are build errors.
+     *
      */
     new webpack.NoErrorsPlugin()
   ]

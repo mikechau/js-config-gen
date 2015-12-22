@@ -13,6 +13,7 @@ module.exports = {
    * Sourcemaps
    *
    * https://webpack.github.io/docs/configuration.html#devtool
+   *
    */
   "devtool": "false",
 
@@ -20,6 +21,7 @@ module.exports = {
    * Application entrypoint
    *
    * https://webpack.github.io/docs/configuration.html#entry
+   *
    */
   "entry": {
     "main": [
@@ -31,6 +33,7 @@ module.exports = {
    * Output configuration (build results)
    *
    * https://webpack.github.io/docs/configuration.html#output
+   *
    */
   "output": {
     "path": path.join(PROJECT_DIR, "build", "assets"),
@@ -45,6 +48,7 @@ module.exports = {
    * Debug Loaders
    *
    * https://webpack.github.io/docs/configuration.html#debug
+   *
    */
   "debug": false,
 
@@ -52,6 +56,7 @@ module.exports = {
    * Module resolution configuration
    *
    * https://webpack.github.io/docs/configuration.html#resolve
+   *
    */
   "resolve": {
     "root": path.join(PROJECT_DIR, "src"),
@@ -63,6 +68,7 @@ module.exports = {
 
   /**
    * Loader resolution configuration
+   *
    */
   "resolveLoader": {
     "root": path.join(PROJECT_DIR, "node_modules")
@@ -72,15 +78,18 @@ module.exports = {
    * Module configuration
    *
    *  https://webpack.github.io/docs/configuration.html#module
+   *
    */
   "module": {
     /**
     *  Preloaders
+    *
     *  https://webpack.github.io/docs/loaders.html#loader-order
     *
     *  Eslint Loader: https://github.com/MoOx/eslint-loader
     *
     *  These loaders run before everything.
+    *
     */
     "preLoaders": [
       {
@@ -92,6 +101,7 @@ module.exports = {
 
     /**
     * Loaders
+    *
     * https://webpack.github.io/docs/loaders.html
     *
     * Babel Loader: https://github.com/babel/babel-loader
@@ -103,6 +113,7 @@ module.exports = {
     * Raw Loader: https://github.com/webpack/raw-loader
     *
     * Loaders match for a particular file extension, options to the loader are provided by query param
+    *
     */
     "loaders": [
       {
@@ -157,7 +168,9 @@ module.exports = {
   },
   /**
    * Eslint loader configuration
+   *
    * https://github.com/MoOx/eslint-loader
+   *
    */
   "eslint": {
     "emitError": true,
