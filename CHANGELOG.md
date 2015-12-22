@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.4
+
+- Add eslint rule to project `karma-test-index.js`.
+
 ## v5.0.2
 
 - Add `sass-loader` to `react-web` pacakges.
