@@ -83,6 +83,7 @@ var devPackages = {
     'file-loader',
     'json-loader',
     'less-loader',
+    'sass-loader',
     'html-loader',
     'null-loader',
     'raw-loader',
