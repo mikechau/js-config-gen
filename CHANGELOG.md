@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v5.0.0
+
+- React Web
+  - Generate sprockets compatible asset manifest
+  - Preliminary support for subresource integrity in asset manifest
+
 ## v0.4.1
 
 - React Web
