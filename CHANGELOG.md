@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.6
+
+- Update formatting for webpack config comments
+
 ## v5.0.5
 
 - Update generated project webpack config` plugins order. Moved `SriPlugin` higher.
