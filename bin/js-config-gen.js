@@ -80,7 +80,6 @@ if (argv.help) {
   shell.echo('  --redux: creates scaffold for redux');
   shell.echo('  --assets: creates assets folder with dirs for images, fonts, and stylesheets');
   shell.echo('  --skip-install: override to skip installing of packages');
-  shell.echo('  --skip-tests: override to skip setup for tests');
   shell.echo('  --skip-commands: override to skip adding of commands');
   shell.exit(0);
 }
@@ -143,19 +142,6 @@ if (packageInstall || argv.eslintrc) {
   }
 }
 
-if ((packageInstall && !argv['skip-tests']) || !argv['skip-tests']) {
-  if (forceInstall && !shell.test('-d', 'tests')) {
-    shell.echo('----> Setting up test dir...');
-    shell.mkdir('-p', 'tests');
-  }
-
-  if (forceInstall || !shell.test('-f', './tests/.eslintrc')) {
-    shell.echo('----> Generating test project .eslintrc...');
-    generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
-    copyDistConfig('/json/test-eslintrc.json', 'tests/.eslintrc');
-  }
-}
-
 if (packageInstall || webpackGroup) {
   if (forceInstall || !shell.test('-f', './webpack.config.dev.js')) {
     shell.echo('----> Generating webpack.config.dev.js...');
@@ -181,6 +167,14 @@ if (packageInstall || argv['webpack-dev-server']) {
 }
 
 if (packageInstall || argv.karma) {
+  shell.echo('----> Generating test project .eslintrc...');
+  shell.mkdir('-p', 'tests');
+
+  if (forceInstall || !shell.test('-f', './tests/.eslintrc')) {
+    generateTemplate('project-eslintrc.json.tmpl', TEST_ESLINT_PATH, './tests/.eslintrc');
+    copyDistConfig('/json/test-eslintrc.json', 'tests/.eslintrc');
+  }
+
   if (forceInstall || !shell.test('-f', './karma.conf.js')) {
     shell.echo('----> Generating project karma.conf.js');
     require('../src/configs/karma/project-config')().template.to('karma.conf.js');
