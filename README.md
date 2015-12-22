@@ -36,7 +36,6 @@ Args:
   --index-html: creates dev & prod index.html
   --redux: creates scaffold for redux
   --skip-install: override to skip installing of packages
-  --skip-tests: override to skip setup for tests
   --skip-commands: override to skip adding of commands
 ```
 
@@ -80,7 +79,7 @@ Alternatively, you could just copy a file and use it as a starting point for you
 ### Production
 - [x] PurifyCSS
 - [x] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
-- [ ] Sprockets compatible manifest with webpack
+- [x] Sprockets compatible manifest with webpack
 
 ### Testing
 - [ ] Review [babel-plugin-rewire](https://github.com/speedskater/babel-plugin-rewire/issues/44) for Babel 6 compatibility
