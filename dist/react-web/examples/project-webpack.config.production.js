@@ -171,26 +171,13 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 
     /**
-     * Compression Plugin
+     * Subresource Integrity Plugin
      *
-     * https://github.com/webpack/compression-webpack-plugin
+     * https://github.com/mikechau/sri-webpack-plugin
      *
-     * Gzip assets
+     * Generate subresource integrity hashes.
      */
-    new CompressionPlugin({
-      asset: '{file}.gz',
-      regexp: /\.js$|\.css$/,
-      algorithm: function(content, fn) {
-        zopfli.gzip(content, {
-          verbose: false,
-          verbose_more: false,
-          numiterations: 15,
-          blocksplitting: true,
-          blocksplittinglast: false,
-          blocksplittingmax: 15
-        }, fn);
-      }
-    }),
+    new SriPlugin(),
 
     /**
      * Html Plugin
@@ -217,6 +204,28 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 
     /**
+     * Compression Plugin
+     *
+     * https://github.com/webpack/compression-webpack-plugin
+     *
+     * Gzip assets
+     */
+    new CompressionPlugin({
+      asset: '{file}.gz',
+      regexp: /\.js$|\.css$/,
+      algorithm: function(content, fn) {
+        zopfli.gzip(content, {
+          verbose: false,
+          verbose_more: false,
+          numiterations: 15,
+          blocksplitting: true,
+          blocksplittinglast: false,
+          blocksplittingmax: 15
+        }, fn);
+      }
+    }),
+
+    /**
      * Stats Writer Plugin
      *
      * https://github.com/FormidableLabs/webpack-stats-plugin
@@ -227,15 +236,6 @@ var config = _.merge({}, baseWebpackConfig, {
       filename: '../stats.json',
       fields: null
     }),
-
-    /**
-     * Subresource Integrity Plugin
-     *
-     * https://github.com/mikechau/sri-webpack-plugin
-     *
-     * Generate subresource integrity hashes.
-     */
-    new SriPlugin(),
 
     /**
      * Manifest Revision Plugin
