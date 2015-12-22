@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint no-var: 0 */
 
 'use strict';
 
