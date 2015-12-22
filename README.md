@@ -51,6 +51,17 @@ Args:
   - PurifyCSS
   - Karma / Mocha for browser/unit testing, MJ's Expect for Assertions
 
+## Project Commands
+
+Custom commands are added to your `package.json` scripts, use `npm run` to
+list them all.
+
+These are the standard ones available:
+
+- `npm start` - boots the dev server, start hacking!
+- `npm test` - runs the test suite
+- `npm run build` - compiles assets
+
 ## Extending
 
 While there is code generation involved, most of the generated configs are contained in the `dist` folder. You can require a module from `dist` and then merge over it to override any particular settings you want.
