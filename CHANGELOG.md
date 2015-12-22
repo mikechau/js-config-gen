@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.2
+
+- Add `sass-loader` to `react-web` pacakges.
+
 ## v5.0.1
 
 - Removed `--skip-tests`, `test/.eslintrc` is now created when karma is being
