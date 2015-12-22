@@ -7,11 +7,12 @@ var webpack = require('webpack');
 var baseWebpackConfig = require('./node_modules/@mikechau/js-config-gen/dist/react-web/base-webpack.config.production');
 var CleanPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var StatsPlugin = require('stats-webpack-plugin');
+var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var PurifyCSSPlugin = require('bird3-purifycss-webpack-plugin');
 var zopfli = require('node-zopfli');
 var CompressionPlugin = require('compression-webpack-plugin');
+var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
 
 var buildDate = (new Date());
 
@@ -43,17 +44,17 @@ var config = _.merge({}, baseWebpackConfig, {
      */
     loaders: baseWebpackConfig.module.loaders.concat([
       {
-        "test": /\.css$/,
-        "loader": ExtractTextPlugin.extract('style-loader', 'css')
+        'test': /\.css$/,
+        'loader': ExtractTextPlugin.extract('style-loader', 'css')
       },
       {
-        "test": /\.less$/,
-        "loader": ExtractTextPlugin.extract('style-loader', 'css!less')
+        'test': /\.less$/,
+        'loader': ExtractTextPlugin.extract('style-loader', 'css!less')
       },
       {
-        "test": /\.scss$/,
-        "loader": ExtractTextPlugin.extract('style-loader', 'css!sass')
-      },
+        'test': /\.scss$/,
+        'loader': ExtractTextPlugin.extract('style-loader', 'css!sass')
+      }
     ])
   },
 
@@ -176,7 +177,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * Gzip assets
      */
     new CompressionPlugin({
-      asset: "{file}.gz",
+      asset: '{file}.gz',
       regexp: /\.js$|\.css$/,
       algorithm: function(content, fn) {
         zopfli.gzip(content, {
@@ -215,21 +216,30 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 
     /**
-     * Stats Plugin
+     * Stats Writer Plugin
      *
-     * https://github.com/unindented/stats-webpack-plugin
+     * https://github.com/FormidableLabs/webpack-stats-plugin
      *
      * Ouputs webpack stats into a file.
      */
-    new StatsPlugin(path.join(__dirname, 'build', 'stats.json'), {
-      chunkModules: true,
-      exclude: [
-        /node_modules[\\\/]react(-router)?[\\\/]/
-      ]
+    new StatsWriterPlugin({
+      filename: '../stats.json',
+      fields: null
+    }),
+
+    /**
+     * Manifest Revision Plugin
+     *
+     * https://github.com/nickjj/manifest-revision-webpack-plugin
+     *
+     * Create asset manifests.
+     */
+    new ManifestRevisionPlugin(path.join('build', 'sprockets-manifest.json'), {
+      rootAssetPath: './src/assets',
+      ignorePaths: ['/fonts', '/stylesheets'],
+      format: 'rails'
     })
   ]
 });
-
-
 
 module.exports = config;

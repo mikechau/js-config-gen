@@ -78,6 +78,7 @@ if (argv.help) {
   shell.echo('  --karma: create karma configs');
   shell.echo('  --index-html: creates dev & prod index.html');
   shell.echo('  --redux: creates scaffold for redux');
+  shell.echo('  --assets: creates assets folder with dirs for images, fonts, and stylesheets');
   shell.echo('  --skip-install: override to skip installing of packages');
   shell.echo('  --skip-tests: override to skip setup for tests');
   shell.echo('  --skip-commands: override to skip adding of commands');
@@ -111,6 +112,15 @@ if (!argv['skip-install'] && packageInstall) {
 
   shell.echo('----> Installing dev packages...');
   devNpmInstall(packages.dev);
+}
+
+if (packageInstall || argv.assets) {
+  if (forceInstall || !shell.test('-d', 'src/assets')) {
+    shell.echo('----> Generating assets folders...');
+    shell.mkdir('-p', 'src/assets/images');
+    shell.mkdir('-p', 'src/assets/fonts');
+    shell.mkdir('-p', 'src/assets/stylesheets');
+  }
 }
 
 if (

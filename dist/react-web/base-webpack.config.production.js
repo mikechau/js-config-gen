@@ -149,16 +149,16 @@ module.exports = {
         "test": /\.txt$/,
         "loader": "raw"
       }
-    ],
+    ]
   },
   /**
    * Eslint loader configuration
    * https://github.com/MoOx/eslint-loader
    */
   "eslint": {
-      "emitError": true,
-      "emitWarning": true,
-      "failOnWarning": true,
-      "failOnError": true
-    }
+    "emitError": true,
+    "emitWarning": true,
+    "failOnWarning": true,
+    "failOnError": true
+  }
 };

@@ -95,7 +95,8 @@ var devPackages = {
     'clean-webpack-plugin',
     'compression-webpack-plugin',
     'extract-text-webpack-plugin',
-    'stats-webpack-plugin',
+    'webpack-stats-plugin',
+    'manifest-revision-webpack-plugin',
     'bird3-purifycss-webpack-plugin'
   ]
 };

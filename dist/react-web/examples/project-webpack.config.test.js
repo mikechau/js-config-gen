@@ -3,7 +3,7 @@
 'use strict';
 
 var _ = require('lodash');
-var path = require('path');
+
 var webpack = require('webpack');
 var baseWebpackConfig = require('./node_modules/@mikechau/js-config-gen/dist/react-web/base-webpack.config.test');
 
@@ -26,17 +26,17 @@ var config = _.merge({}, baseWebpackConfig, {
   module: {
     loaders: baseWebpackConfig.module.loaders.concat([
       {
-        "test": /\.css$/,
-        "loader": "style!css"
+        'test': /\.css$/,
+        'loader': 'style!css'
       },
       {
-        "test": /\.less$/,
-        "loader": "style!css!less"
+        'test': /\.less$/,
+        'loader': 'style!css!less'
       },
       {
-        "test": /\.scss$/,
-        "loader": "style!css!scss"
-      },
+        'test': /\.scss$/,
+        'loader': 'style!css!scss'
+      }
     ])
   },
 

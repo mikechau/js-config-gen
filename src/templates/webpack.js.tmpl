@@ -145,11 +145,11 @@ module.exports = {
         "test": /\.txt$/,
         "loader": "raw"
       }
-    ],
+    ]
   },
   /**
    * Eslint loader configuration
    * https://github.com/MoOx/eslint-loader
    */
-  "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "      ").replace(/}$/g, "    }") %}{% } else { %}{}{% } %}
+  "eslint": {% if (o.webpack.eslint) { %}{%# JSON.stringify(o.webpack.eslint, null, "    ").replace(/}$/g, "  }") %}{% } else { %}{}{% } %}
 };
