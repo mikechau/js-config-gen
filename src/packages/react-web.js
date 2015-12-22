@@ -87,7 +87,8 @@ var devPackages = {
     'null-loader',
     'raw-loader',
     'style-loader',
-    'url-loader'
+    'url-loader',
+    'image-webpack-loader'
   ],
 
   webpackPlugins: [
@@ -96,8 +97,9 @@ var devPackages = {
     'compression-webpack-plugin',
     'extract-text-webpack-plugin',
     'webpack-stats-plugin',
-    'manifest-revision-webpack-plugin',
-    'bird3-purifycss-webpack-plugin'
+    'https://github.com/mikechau/manifest-revision-webpack-plugin',
+    'bird3-purifycss-webpack-plugin',
+    '@mikechau/sri-webpack-plugin'
   ]
 };
 

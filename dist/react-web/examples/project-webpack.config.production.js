@@ -12,6 +12,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var PurifyCSSPlugin = require('bird3-purifycss-webpack-plugin');
 var zopfli = require('node-zopfli');
 var CompressionPlugin = require('compression-webpack-plugin');
+var SriPlugin = require('@mikechau/sri-webpack-plugin');
 var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
 
 var buildDate = (new Date());
@@ -228,16 +229,31 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 
     /**
+     * Subresource Integrity Plugin
+     *
+     * https://github.com/mikechau/sri-webpack-plugin
+     *
+     * Generate subresource integrity hashes.
+     */
+    new SriPlugin(),
+
+    /**
      * Manifest Revision Plugin
      *
      * https://github.com/nickjj/manifest-revision-webpack-plugin
      *
      * Create asset manifests.
      */
-    new ManifestRevisionPlugin(path.join('build', 'sprockets-manifest.json'), {
+    new ManifestRevisionPlugin(path.resolve(__dirname, 'build/sprockets-manifest.json'), {
       rootAssetPath: './src/assets',
       ignorePaths: ['/fonts', '/stylesheets'],
-      format: 'rails'
+      format: 'rails',
+      customStatsConfig: [
+        {
+          key: '__CUSTOM_DATA_SRIS',
+          name: 'integrity'
+        }
+      ]
     })
   ]
 });

@@ -14,3 +14,4 @@ examples/*/src/reducers/
 examples/*/src/stores/
 examples/*/src/
 examples/*/karma*
+examples/*/plugins

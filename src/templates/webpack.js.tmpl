@@ -93,6 +93,7 @@ module.exports = {
     * Babel Loader: https://github.com/babel/babel-loader
     * Url Loader: https://github.com/webpack/url-loader
     * File Loader: https://github.com/webpack/file-loader
+    * Image Loader: https://github.com/tcoopman/image-webpack-loader
     * JSON Loader: https://github.com/webpack/json-loader
     * HTML Loader: https://github.com/webpack/html-loader
     * Raw Loader: https://github.com/webpack/raw-loader
@@ -127,7 +128,10 @@ module.exports = {
       },
       {
         "test": /\.(png|jpg|jpeg|gif)$/,
-        "loader": "url?limit=10000&name=[name]-[hash].[ext]"
+        "loaders": [
+          "url?limit=10000&name=[name]-[hash].[ext]",
+          "image-webpack?{ progressive: true, optimizationLevel: 7, interlaced: false, pngquant: { quality: '65-90', speed: 4}, bypassOnDebug: true }"
+        ]
       },
       {
         "test": /\.json$/,
