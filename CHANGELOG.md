@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v5.0.1
+
+- Removed `--skip-tests`, `test/.eslintrc` is now created when karma is being
+set up.
+
 ## v5.0.0
 
 - React Web
