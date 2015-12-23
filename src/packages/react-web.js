@@ -57,7 +57,6 @@ var devPackages = {
     'karma-webpack',
     'karma-mocha-reporter',
     'karma-sourcemap-loader',
-    'fetch-mock',
     'expect',
     'expect-jsx',
     'react-addons-test-utils',
@@ -106,7 +105,6 @@ var devPackages = {
 
 var packages = {
   http: [
-    'isomorphic-fetch',
     'normalizr',
     'humps'
   ],
