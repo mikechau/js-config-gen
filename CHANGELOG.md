@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.8
+
+- Removed `isomorphic-fetch` and `fetch-mock` from `react-web` packages.
+
 ## v5.0.7
 
 - Update project webpack config syntax formatting for style loaders.
