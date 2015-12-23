@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v5.0.7
+
+- Update project webpack config syntax formatting for style loaders.
+
 ## v5.0.6
 
 - Update formatting for webpack config comments

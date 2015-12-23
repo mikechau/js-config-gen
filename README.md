@@ -80,6 +80,7 @@ Alternatively, you could just copy a file and use it as a starting point for you
 
 - Bin command
   - [ ] Add copy command to copy a file from dist
+  - [ ] Choose specific style loader instead of including less and sass
 
 - Misc
   - [x] Static HTML Templates
@@ -91,6 +92,8 @@ Alternatively, you could just copy a file and use it as a starting point for you
 - [x] PurifyCSS
 - [x] Zopfli compression with webpack [#10](https://github.com/webpack/compression-webpack-plugin/pull/10)
 - [x] Sprockets compatible manifest with webpack
+- [x] Subresource integrity in manifest
+- [ ] Generated index.html should include integrity
 
 ### Testing
 - [ ] Review [babel-plugin-rewire](https://github.com/speedskater/babel-plugin-rewire/issues/44) for Babel 6 compatibility
@@ -99,10 +102,11 @@ Alternatively, you could just copy a file and use it as a starting point for you
 
 ### Development
 - [x] Dev Server
+- [ ] CSS Source Maps
+- [ ] PostCSS / Autoprefixer
+- [ ] CSS Modules / React styling
 - [ ] Flow
 - [ ] Bootswatch
-- [ ] CSS Modules
-- [ ] PostCSS
 - [ ] Native support
 - [ ] Server support
 
