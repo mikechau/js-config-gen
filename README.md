@@ -49,7 +49,7 @@ Args:
   - ES6
   - Babel w/ hot transforming, redbox-errors
   - PurifyCSS
-  - Karma / Mocha for browser/unit testing, MJ's Expect for Assertions
+  - Karma / Mocha for browser/unit testing, [@mjackson's](https://github.com/mjackson) [expect](https://github.com/mjackson/expect) for assertions
 
 ## Project Commands
 
