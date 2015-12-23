@@ -27,16 +27,27 @@ var config = _.merge({}, baseWebpackConfig, {
   module: {
     loaders: baseWebpackConfig.module.loaders.concat([
       {
-        'test': /\.css$/,
-        'loader': 'style!css'
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css'
+        ]
       },
       {
-        'test': /\.less$/,
-        'loader': 'style!css!less'
+        test: /\.less$/,
+        loaders: [
+          'style',
+          'css',
+          'less'
+        ]
       },
       {
-        'test': /\.scss$/,
-        'loader': 'style!css!scss'
+        test: /\.scss$/,
+        loaders: [
+          'style',
+          'css',
+          'scss'
+        ]
       }
     ])
   },
