@@ -11,7 +11,7 @@ var devPackages = {
 
   babelAddons: [
     'babel-eslint',
-    'babel-plugin-react-transform@beta',
+    'babel-plugin-react-transform',
     'babel-plugin-transform-runtime',
     'babel-preset-es2015',
     'babel-preset-react',
@@ -97,7 +97,7 @@ var devPackages = {
     'compression-webpack-plugin',
     'extract-text-webpack-plugin',
     'webpack-stats-plugin',
-    'https://github.com/mikechau/manifest-revision-webpack-plugin',
+    'manifest-revision-webpack-plugin',
     'bird3-purifycss-webpack-plugin',
     '@mikechau/sri-webpack-plugin'
   ]
@@ -126,7 +126,8 @@ var packages = {
     'redux-thunk',
     'redux-devtools',
     'redux-devtools-dock-monitor',
-    'redux-devtools-log-monitor'
+    'redux-devtools-log-monitor',
+    'redux-devtools-filterable-log-monitor'
   ]
 };
 
