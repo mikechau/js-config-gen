@@ -63,7 +63,7 @@ test('webpackConfigBuilder.output.getPublicPath()', function(assert) {
     { env: 'development', full: true, expected: 'http://localhost:9999/assets/' },
     { env: 'development', full: false, expected: '/assets/' },
     { env: 'test', full: false, expected: '/assets/' },
-    { env: 'production', full: false, expected: '/assets/' }
+    { env: 'production', full: false, expected: '/assets/[hash]/' }
   ].forEach(function(scenario) {
     var actual = builder.output.getPublicPath(scenario.env, scenario.full);
     var expected = scenario.expected;
@@ -80,7 +80,7 @@ test('webpackConfigBuilder.output.getFilename()', function(assert) {
   [
     { env: 'development', expected: '[name].js' },
     { env: 'test', expected: '[name].js' },
-    { env: 'production', expected: '[name]-[contenthash].js' }
+    { env: 'production', expected: '[name].[hash].js' }
   ].forEach(function(scenario) {
     var actual = builder.output.getFilename(scenario.env);
     var expected = scenario.expected;

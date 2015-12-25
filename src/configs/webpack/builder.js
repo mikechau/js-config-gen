@@ -38,13 +38,17 @@ module.exports = {
         return 'http://localhost:9999/assets/';
       }
 
+      if (env === 'production') {
+        return '/assets/[hash]/';
+      }
+
       return '/assets/';
     },
 
     getFilename: function getFilename(env) {
       switch (env) {
         case 'production':
-          return '[name]-[chunkhash].js';
+          return '[name].[hash].js';
         default:
           return '[name].js';
       }
@@ -53,7 +57,7 @@ module.exports = {
     getChunkFilename: function getChunkFilename(env) {
       switch (env) {
         case 'production':
-          return '[id].c.[chunkhash].js';
+          return '[id].c.[hash].js';
         default:
           return '[id].chunk.[hash].js';
       }
@@ -62,7 +66,7 @@ module.exports = {
     getSourceMapFilename: function getSourceMapFilename(env) {
       switch (env) {
         case 'production':
-          return 'debug/[file]-[id]-[hash].map';
+          return 'debug/[file].[id].[hash].map';
         default:
           return '[file].map';
       }

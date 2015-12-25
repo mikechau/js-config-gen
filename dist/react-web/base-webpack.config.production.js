@@ -37,10 +37,10 @@ module.exports = {
    */
   "output": {
     "path": path.join(PROJECT_DIR, "build", "assets"),
-    "publicPath": "/assets/",
-    "filename": "[name]-[chunkhash].js",
-    "chunkFilename": "[id].c.[chunkhash].js",
-    "sourceMapFilename": "debug/[file]-[id]-[hash].map",
+    "publicPath": "/assets/[hash]/",
+    "filename": "[name].[hash].js",
+    "chunkFilename": "[id].c.[hash].js",
+    "sourceMapFilename": "debug/[file].[id].[hash].map",
     "pathInfo": "false"
   },
 

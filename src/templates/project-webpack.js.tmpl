@@ -222,7 +222,7 @@ var config = _.merge({}, baseWebpackConfig, {
     new HtmlWebpackPlugin({
       title: 'My React Application',
       description: 'Sample React Application',
-      filename: '../index.html',
+      filename: '../../index.html',
       minify: {
         collapseWhitespace: true
       },
@@ -267,7 +267,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      */
     new StatsWriterPlugin({
-      filename: '../stats.json',
+      filename: '../../stats.json',
       fields: null
     }),
 
