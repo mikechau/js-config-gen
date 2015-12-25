@@ -58,7 +58,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      * https://webpack.github.io/docs/list-of-plugins.html#defineplugin
      *
-     * Defines global constants, we define NODE_ENV to enable React production
+     * Defines global constants, we define NODE_ENV to enable React development
      * mode
      *
      * https://facebook.github.io/react/downloads.html#npm
@@ -66,7 +66,7 @@ var config = _.merge({}, baseWebpackConfig, {
      */
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'test')
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
       }
     }),
 

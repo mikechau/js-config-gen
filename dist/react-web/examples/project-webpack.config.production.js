@@ -12,8 +12,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var PurifyCSSPlugin = require('bird3-purifycss-webpack-plugin');
 var zopfli = require('node-zopfli');
 var CompressionPlugin = require('compression-webpack-plugin');
-var SriPlugin = require('@mikechau/sri-webpack-plugin');
+var SriStatsPlugin = require('sri-stats-webpack-plugin');
+var SprocketsStatsPlugin = require('sprockets-stats-webpack-plugin');
 var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
+var sprocketsFormatter = require('sprockets-stats-webpack-plugin/formatters').ManifestRevisionFormat.formatter;
 
 var buildDate = (new Date());
 
@@ -184,14 +186,29 @@ var config = _.merge({}, baseWebpackConfig, {
     }),
 
     /**
-     * Subresource Integrity Plugin
+     * Subresource Integrity Stats Plugin
      *
-     * https://github.com/mikechau/sri-webpack-plugin
+     * https://github.com/mikechau/sri-stats-webpack-plugin
      *
-     * Generate subresource integrity hashes.
+     * Add subresource integrity hashes to stats.
      *
      */
-    new SriPlugin(),
+    new SriStatsPlugin({
+      customStatsKey: 'rails'
+    }),
+
+    /**
+     * Sprockets Stats Plugin
+     *
+     * https://github.com/mikechau/sprockets-stats-webpack-plugin
+     *
+     * Add sprockets asset manifest metadata to stats.
+     *
+     */
+    new SprocketsStatsPlugin({
+      customStatsKey: 'rails',
+      assetsPath: path.join(process.cwd(), 'build', 'assets')
+    }),
 
     /**
      * Html Plugin
@@ -265,13 +282,7 @@ var config = _.merge({}, baseWebpackConfig, {
     new ManifestRevisionPlugin(path.resolve(__dirname, 'build/sprockets-manifest.json'), {
       rootAssetPath: './src/assets',
       ignorePaths: ['/fonts', '/stylesheets'],
-      format: 'rails',
-      customStatsConfig: [
-        {
-          key: '__CUSTOM_DATA_SRIS',
-          name: 'integrity'
-        }
-      ]
+      format: sprocketsFormatter.bind(null, 'rails')
     })
   ]
 });

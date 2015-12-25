@@ -99,7 +99,8 @@ var devPackages = {
     'webpack-stats-plugin',
     'manifest-revision-webpack-plugin',
     'bird3-purifycss-webpack-plugin',
-    '@mikechau/sri-webpack-plugin'
+    'sri-stats-webpack-plugin',
+    'sprockets-stats-webpack-plugin'
   ]
 };
 
