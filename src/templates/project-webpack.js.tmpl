@@ -163,7 +163,7 @@ var config = _.merge({}, baseWebpackConfig, {
      * Generates stylesheets required from your modules.
      *
      */
-    new ExtractTextPlugin('[name]-[hash].css'),
+    new ExtractTextPlugin('[name]-[contenthash].css'),
 
     /**
      * PurifyCSS

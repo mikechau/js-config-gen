@@ -44,9 +44,27 @@ module.exports = {
     getFilename: function getFilename(env) {
       switch (env) {
         case 'production':
-          return '[name]-[hash].js';
+          return '[name]-[contenthash].js';
         default:
           return '[name].js';
+      }
+    },
+
+    getChunkFilename: function getChunkFilename(env) {
+      switch (env) {
+        case 'production':
+          return '[id].c.[contenthash].js';
+        default:
+          return '[id].chunk.[hash].js';
+      }
+    },
+
+    getSourceMapFilename: function getSourceMapFilename(env) {
+      switch (env) {
+        case 'production':
+          return 'debug/[file]-[id]-[hash].map';
+        default:
+          return '[file].map';
       }
     },
 

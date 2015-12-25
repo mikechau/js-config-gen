@@ -80,7 +80,7 @@ test('webpackConfigBuilder.output.getFilename()', function(assert) {
   [
     { env: 'development', expected: '[name].js' },
     { env: 'test', expected: '[name].js' },
-    { env: 'production', expected: '[name]-[hash].js' }
+    { env: 'production', expected: '[name]-[contenthash].js' }
   ].forEach(function(scenario) {
     var actual = builder.output.getFilename(scenario.env);
     var expected = scenario.expected;

@@ -41,7 +41,7 @@ module.exports = {
     "publicPath": "/assets/",
     "filename": "[name].js",
     "chunkFilename": "[id].chunk.[hash].js",
-    "sourceMapFilename": "debug/[file].map",
+    "sourceMapFilename": "[file].map",
     "pathInfo": "true"
   },
 
@@ -70,6 +70,8 @@ module.exports = {
   /**
    * Loader resolution configuration
    *
+   * https://webpack.github.io/docs/configuration.html#resolveloader
+   *
    */
   "resolveLoader": {
     "root": path.join(PROJECT_DIR, "node_modules")
@@ -78,18 +80,18 @@ module.exports = {
   /**
    * Module configuration
    *
-   *  https://webpack.github.io/docs/configuration.html#module
+   * https://webpack.github.io/docs/configuration.html#module
    *
    */
   "module": {
     /**
-    *  Preloaders
+    * Preloaders
     *
-    *  https://webpack.github.io/docs/loaders.html#loader-order
+    * https://webpack.github.io/docs/loaders.html#loader-order
     *
-    *  Eslint Loader: https://github.com/MoOx/eslint-loader
+    * Eslint Loader: https://github.com/MoOx/eslint-loader
     *
-    *  These loaders run before everything.
+    * These loaders run before everything.
     *
     */
     "preLoaders": [

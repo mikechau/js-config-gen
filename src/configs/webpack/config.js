@@ -24,8 +24,8 @@ function buildWebpackConfig(options) {
         path: '"build", "assets"',
         publicPath: builder.output.getPublicPath(params.env, params.fullOutputPath),
         filename: builder.output.getFilename(params.env),
-        chunkFilename: '[id].chunk.[hash].js',
-        sourceMapFilename: 'debug/[file].map',
+        chunkFilename: builder.output.getChunkFilename(params.env),
+        sourceMapFilename: builder.output.getSourceMapFilename(params.env),
         pathInfo: builder.output.getPathInfo(params.env)
       },
       debug: builder.getDebug(params.env),
