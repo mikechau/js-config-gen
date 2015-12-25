@@ -13,6 +13,7 @@ var config = _.merge({},
   browserEslintrc,
   nodeEslintrc,
   {
+    parser: 'babel-eslint',
     plugins: plugins,
     rules: babelEslintrc.rules
   }

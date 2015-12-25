@@ -451,5 +451,6 @@ module.exports = {
     "mocha/handle-done-callback": 1,
     "mocha/no-synchronous-tests": 0,
     "mocha/no-global-tests": 1
-  }
+  },
+  "parser": "babel-eslint"
 };

@@ -446,5 +446,6 @@ module.exports = {
       "always"
     ],
     "babel/no-await-in-loop": 1
-  }
+  },
+  "parser": "babel-eslint"
 };
