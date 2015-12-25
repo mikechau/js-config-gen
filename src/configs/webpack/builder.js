@@ -44,7 +44,7 @@ module.exports = {
     getFilename: function getFilename(env) {
       switch (env) {
         case 'production':
-          return '[name]-[contenthash].js';
+          return '[name]-[chunkhash].js';
         default:
           return '[name].js';
       }
@@ -53,7 +53,7 @@ module.exports = {
     getChunkFilename: function getChunkFilename(env) {
       switch (env) {
         case 'production':
-          return '[id].c.[contenthash].js';
+          return '[id].c.[chunkhash].js';
         default:
           return '[id].chunk.[hash].js';
       }

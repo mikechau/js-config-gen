@@ -15,7 +15,7 @@ var CompressionPlugin = require('compression-webpack-plugin');
 var SriStatsPlugin = require('sri-stats-webpack-plugin');
 var SprocketsStatsPlugin = require('sprockets-stats-webpack-plugin');
 var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
-var sprocketsFormatter = require('sprockets-stats-webpack-plugin/formatters').ManifestRevisionFormat.formatter;
+var sprocketsFormatter = require('sprockets-stats-webpack-plugin/lib/formatters').ManifestRevisionFormat.formatter;
 
 var buildDate = (new Date());
 
