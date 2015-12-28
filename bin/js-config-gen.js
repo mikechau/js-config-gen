@@ -186,7 +186,7 @@ if (packageInstall || argv.karma) {
   }
 }
 
-if (packageInstall || argv.html) {
+if (packageInstall || argv['index-html']) {
   shell.mkdir('-p', 'static');
 
   if (forceInstall || !shell.test('-f', './static/dev.index.html')) {
