@@ -21,7 +21,7 @@ function buildWebpackConfig(options) {
       devtool: builder.getDevTool(params.env),
       entry: builder.getEntry(params.env),
       output: {
-        path: '"build", "assets"',
+        path: builder.output.getPath(params.env),
         publicPath: builder.output.getPublicPath(params.env, params.fullOutputPath),
         filename: builder.output.getFilename(params.env),
         chunkFilename: builder.output.getChunkFilename(params.env),

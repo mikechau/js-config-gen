@@ -97,7 +97,6 @@ var devPackages = {
     'compression-webpack-plugin',
     'extract-text-webpack-plugin',
     'webpack-stats-plugin',
-    'manifest-revision-webpack-plugin',
     'bird3-purifycss-webpack-plugin',
     'sri-stats-webpack-plugin',
     'sprockets-stats-webpack-plugin'

@@ -2,7 +2,6 @@
 
 'use strict';
 var _ = require('lodash');
-var path = require('path');
 var webpack = require('webpack');
 var baseWebpackConfig = require('./node_modules/@mikechau/js-config-gen/dist/react-web/base-webpack.config.production');
 var CleanPlugin = require('clean-webpack-plugin');
@@ -14,8 +13,6 @@ var zopfli = require('node-zopfli');
 var CompressionPlugin = require('compression-webpack-plugin');
 var SriStatsPlugin = require('sri-stats-webpack-plugin');
 var SprocketsStatsPlugin = require('sprockets-stats-webpack-plugin');
-var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
-var sprocketsFormatter = require('sprockets-stats-webpack-plugin/lib/formatters').ManifestRevisionFormat.formatter;
 
 var buildDate = (new Date());
 
@@ -206,8 +203,7 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      */
     new SprocketsStatsPlugin({
-      customStatsKey: 'rails',
-      assetsPath: path.join(process.cwd(), 'build', 'assets')
+      customStatsKey: 'rails'
     }),
 
     /**
@@ -222,7 +218,7 @@ var config = _.merge({}, baseWebpackConfig, {
     new HtmlWebpackPlugin({
       title: 'My React Application',
       description: 'Sample React Application',
-      filename: '../index.html',
+      filename: '../../index.html',
       minify: {
         collapseWhitespace: true
       },
@@ -267,22 +263,8 @@ var config = _.merge({}, baseWebpackConfig, {
      *
      */
     new StatsWriterPlugin({
-      filename: '../stats.json',
+      filename: '../../stats.json',
       fields: null
-    }),
-
-    /**
-     * Manifest Revision Plugin
-     *
-     * https://github.com/nickjj/manifest-revision-webpack-plugin
-     *
-     * Create asset manifests.
-     *
-     */
-    new ManifestRevisionPlugin(path.resolve(__dirname, 'build/sprockets-manifest.json'), {
-      rootAssetPath: './src/assets',
-      ignorePaths: ['/fonts', '/stylesheets'],
-      format: sprocketsFormatter.bind(null, 'rails')
     })
   ]
 });

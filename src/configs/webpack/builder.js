@@ -33,7 +33,16 @@ module.exports = {
   },
 
   output: {
-    getPublicPath: function getPath(env, full) {
+    getPath: function getPath(env) {
+      switch (env) {
+        case 'production':
+          return '"build", "assets", "[hash]"';
+        default:
+          return '"build", "assets"';
+      }
+    },
+
+    getPublicPath: function getPublicPath(env, full) {
       if (env === 'development' && full) {
         return 'http://localhost:9999/assets/';
       }
@@ -48,7 +57,7 @@ module.exports = {
     getFilename: function getFilename(env) {
       switch (env) {
         case 'production':
-          return '[name].[hash].js';
+          return '[name]-[hash].js';
         default:
           return '[name].js';
       }
@@ -57,16 +66,16 @@ module.exports = {
     getChunkFilename: function getChunkFilename(env) {
       switch (env) {
         case 'production':
-          return '[id].c.[hash].js';
+          return 'chunk-[id].[name]-[hash].js';
         default:
-          return '[id].chunk.[hash].js';
+          return 'chunk-[id].[name].js';
       }
     },
 
     getSourceMapFilename: function getSourceMapFilename(env) {
       switch (env) {
         case 'production':
-          return 'debug/[file].[id].[hash].map';
+          return 'debug/[file]-[hash].id-[id].map';
         default:
           return '[file].map';
       }

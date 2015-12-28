@@ -36,11 +36,11 @@ module.exports = {
    *
    */
   "output": {
-    "path": path.join(PROJECT_DIR, "build", "assets"),
+    "path": path.join(PROJECT_DIR, "build", "assets", "[hash]"),
     "publicPath": "/assets/[hash]/",
-    "filename": "[name].[hash].js",
-    "chunkFilename": "[id].c.[hash].js",
-    "sourceMapFilename": "debug/[file].[id].[hash].map",
+    "filename": "[name]-[hash].js",
+    "chunkFilename": "chunk-[id].[name]-[hash].js",
+    "sourceMapFilename": "debug/[file]-[hash].id-[id].map",
     "pathInfo": "false"
   },
 
@@ -125,28 +125,28 @@ module.exports = {
       },
       {
         "test": /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        "loader": "url?limit=10000&mimetype=application/font-woff&name=[name]-[hash].[ext]"
+        "loader": "url?limit=10000&mimetype=application/font-woff&name=fonts/[name]-[hash].[ext]"
       },
       {
         "test": /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        "loader": "url?limit=10000&mimetype=application/font-woff&name=[name]-[hash].[ext]"
+        "loader": "url?limit=10000&mimetype=application/font-woff&name=fonts/[name]-[hash].[ext]"
       },
       {
         "test": /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        "loader": "url?limit=10000&mimetype=application/octet-stream&name=[name]-[hash].[ext]"
+        "loader": "url?limit=10000&mimetype=application/octet-stream&name=fonts/[name]-[hash].[ext]"
       },
       {
         "test": /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file?name=[name]-[hash].[ext]"
+        loader: "file?name=fonts/[name]-[hash].[ext]"
       },
       {
         "test": /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        "loader": "url?limit=10000&mimetype=image/svg+xml&name=[name]-[hash].[ext]"
+        "loader": "url?limit=10000&mimetype=image/svg+xml&name=images/[name]-[hash].[ext]"
       },
       {
         "test": /\.(png|jpg|jpeg|gif)$/,
         "loaders": [
-          "url?limit=10000&name=[name]-[hash].[ext]",
+          "url?limit=10000&name=images/[name]-[hash].[ext]",
           "image-webpack?{ progressive: true, optimizationLevel: 7, interlaced: false, pngquant: { quality: '65-90', speed: 4}, bypassOnDebug: true }"
         ]
       },
