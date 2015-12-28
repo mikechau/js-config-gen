@@ -99,7 +99,8 @@ var devPackages = {
     'webpack-stats-plugin',
     'bird3-purifycss-webpack-plugin',
     'sri-stats-webpack-plugin',
-    'sprockets-stats-webpack-plugin'
+    'sprockets-stats-webpack-plugin',
+    'image-webpack-loader'
   ]
 };
 

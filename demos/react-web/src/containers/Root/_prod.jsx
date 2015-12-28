@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import storeShape from 'react-redux/src/utils/'
 import App from '../App';
 
 export default class Root extends Component {
@@ -8,7 +7,7 @@ export default class Root extends Component {
     store: PropTypes.shape({
       subscribe: PropTypes.func.isRequired,
       dispatch: PropTypes.func.isRequired,
-      getState: PropTypes.func.isRequired
+      getState: PropTypes.func.isRequired,
     })
   }
 
