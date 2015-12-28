@@ -28,7 +28,7 @@ test('webpackConfigBuilder.getEntry()', function(assert) {
     {
       env: 'development',
       expected: {
-        main: [
+        application: [
           'webpack-hot-middleware/client',
           './src/index.js'
         ]
@@ -41,7 +41,7 @@ test('webpackConfigBuilder.getEntry()', function(assert) {
     {
       env: 'production',
       expected: {
-        main: [
+        application: [
           './src/index.js'
         ]
       }

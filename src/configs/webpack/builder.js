@@ -16,7 +16,7 @@ module.exports = {
     switch (env) {
       case 'development':
         return {
-          main: [
+          application: [
             'webpack-hot-middleware/client',
             './src/index.js'
           ]
@@ -25,7 +25,7 @@ module.exports = {
         return {};
       default:
         return {
-          main: [
+          application: [
             './src/index.js'
           ]
         };

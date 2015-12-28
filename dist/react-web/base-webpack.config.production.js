@@ -24,7 +24,7 @@ module.exports = {
    *
    */
   "entry": {
-    "main": [
+    "application": [
       "./src/index.js"
     ]
   },

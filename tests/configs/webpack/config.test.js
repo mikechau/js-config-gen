@@ -12,7 +12,7 @@ test('generateWebpackConfig()', function(assert) {
   assert.notEqual(actual.template, '', '.template should not be empty');
 
   assert.equal(typeof actual.json, 'object', '.json should be an object');
-  assert.ok('main' in actual.json.webpack.entry, '.json should have a "main" key in "entry"');
+  assert.ok('application' in actual.json.webpack.entry, '.json should have a "application" key in "entry"');
 
   assert.end();
 });

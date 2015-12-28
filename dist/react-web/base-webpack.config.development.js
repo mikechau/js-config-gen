@@ -24,7 +24,7 @@ module.exports = {
    *
    */
   "entry": {
-    "main": [
+    "application": [
       "webpack-hot-middleware/client",
       "./src/index.js"
     ]
