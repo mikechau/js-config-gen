@@ -8,8 +8,7 @@ var CleanPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var PurifyCSSPlugin = require('bird3-purifycss-webpack-plugin');
-var zopfli = require('node-zopfli');
+var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var SriStatsPlugin = require('sri-stats-webpack-plugin');
 var SprocketsStatsPlugin = require('sprockets-stats-webpack-plugin');
@@ -168,17 +167,19 @@ var config = _.merge({}, baseWebpackConfig, {
      * PurifyCSS
      *
      * https://github.com/purifycss/purifycss
-     * https://github.com/DragonsInn/bird3-purifycss-webpack-plugin
+     * https://github.com/purifycss/purifycss-webpack-plugin
      *
      * CSS dead code elimination! Provide paths to search and it will remove
      * any unused rules from the stylesheets.
      *
      */
     new PurifyCSSPlugin({
-      purifyOptions: { info: true },
+      purifyOptions: {
+        info: true,
+        minify: true
+      },
       paths: [
-        'src/**/*.jsx',
-        'src/**/*.js'
+        'static/prod.index.html'
       ]
     }),
 
@@ -242,16 +243,7 @@ var config = _.merge({}, baseWebpackConfig, {
     new CompressionPlugin({
       asset: '{file}.gz',
       regexp: /\.js$|\.css$/,
-      algorithm: function(content, fn) {
-        zopfli.gzip(content, {
-          verbose: false,
-          verbose_more: false,
-          numiterations: 15,
-          blocksplitting: true,
-          blocksplittinglast: false,
-          blocksplittingmax: 15
-        }, fn);
-      }
+      algorithm: 'zopfli'
     }),
 
     /**
